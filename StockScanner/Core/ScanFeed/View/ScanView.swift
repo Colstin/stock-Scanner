@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ScanView: View {
-    let data = (1...100).map { "\($0)"}
     
     let columns = [
         GridItem(.flexible()),
@@ -20,9 +19,17 @@ struct ScanView: View {
     
     var body: some View {
         ScrollView {
+            Text("Stock Scanner")
+            
             LazyVGrid(columns: columns) {
-                ForEach(data, id: \.self) { item in
-                    Text(item)
+                
+                // Column headers
+                StockColumnHeadersView()
+                
+                ForEach(MockStock.MOCK_STOCK) { stock in
+                    
+                 // Column Body
+                    StockColumnBodyView(stock: stock)
                 }
             }
         }
