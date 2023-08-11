@@ -10,6 +10,7 @@ import SwiftUI
 struct ScanView: View {
     @State var isHeader = false
     
+    
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -20,28 +21,28 @@ struct ScanView: View {
     
     var body: some View {
         NavigationStack {
+            HStack {
+                Text("Daily Gap Scanner")
+                Image(systemName: "triangle.fill")
+                    .rotationEffect(.degrees(180))
+                    .font(.system(size: 10))
+            }
+           
             ScrollView {
-                //Text("Daily Gap Scanner")
-                
                 LazyVGrid(columns: columns) {
-                    
                     // Column headers
-                   
-                        StockColumnHeadersView()
-                          
-                        
+                     StockColumnHeadersView()
+                              
                     ForEach(MockStock.MOCK_STOCK) { stock in
-                        
                      // Column Body
                         StockColumnBodyView(stock: stock)
                     }
                 }
-                .background(Color(.systemGray4))
+                .background(Color(.systemGray6))
+                //.shadow(radius: 10)
                 .padding(.top, 20)
                 
             }
-            .navigationTitle("Daily Gap Scanner")
-           .navigationBarTitleDisplayMode(.inline)
         }
         //.frame(maxHeight: 400) // useful when/ if we add ability for multiple scanners on the one screen
     }

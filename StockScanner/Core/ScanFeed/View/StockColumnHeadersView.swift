@@ -10,19 +10,30 @@ import SwiftUI
 struct StockColumnHeadersView: View {
     var body: some View {
         //Anything but group will glitch it, can see it here but it works
-            Group{
-                Text("Name")
-                Text("Price ($)")
-                VStack {
-                    Text("Gap")
-                    Text("(%)")
-                        .font(.subheadline)
-                }
-                Text("Float (Shr)")
-                Text("Vol")
+        Group{
+            Text("Name")
+            VStack {
+                Text("Price")
+                Text("($)")
+                    .font(.subheadline)
             }
-            .padding(10)
-            .font(.headline)
+            VStack {
+                Text("Gap")
+                Text("(%)")
+                    .font(.subheadline)
+            }
+            VStack {
+                Text("Float")
+                Text("(Shr)")
+                    .font(.subheadline)
+            }
+            Text("Vol")
+        }
+        .frame(width: 110, height: 50)
+        .background(Color(.systemGray3))
+        .cornerRadius(10)
+        .font(.headline)
+           
     }
 }
 

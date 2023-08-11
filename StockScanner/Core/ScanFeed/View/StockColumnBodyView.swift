@@ -18,6 +18,9 @@ struct StockColumnBodyView: View {
             Text(stock.gap)
             Text(stock.float)
             Text(stock.volume)
+                .padding(10)
+                .background(Color(.systemBlue))
+                .cornerRadius(10)
         }
         .padding(.bottom)
     }

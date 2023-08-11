@@ -16,6 +16,14 @@ struct StockScannerApp: App {
     }
 }
 
+/*
+ TODO: Complete these
+ 1. Make body colors based on the numbers dynamic
+ 2. Use number formatter to make sure numbers are not big
+ 
+ 
+ 
+ */
 
 /*
  Colors:
