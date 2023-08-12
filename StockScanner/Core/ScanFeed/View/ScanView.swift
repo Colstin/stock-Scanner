@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct ScanView: View {
-    @State var isHeader = false
-    
-    
+
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -38,8 +36,12 @@ struct ScanView: View {
                         StockColumnBodyView(stock: stock)
                     }
                 }
-                .background(Color(.systemGray6))
-                //.shadow(radius: 10)
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color(.systemGray6))
+                        .shadow(color: Color("ScanShaddowColor").opacity(0.5), radius: 10, x: 0, y: 4)
+                )
+              
                 .padding(.top, 20)
                 
             }

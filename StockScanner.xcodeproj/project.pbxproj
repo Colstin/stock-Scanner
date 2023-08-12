@@ -16,7 +16,6 @@
 		D67FAE9C2A841D6A00BE9BAC /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAE9B2A841D6A00BE9BAC /* MainTabView.swift */; };
 		D67FAE9E2A8421D400BE9BAC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAE9D2A8421D400BE9BAC /* User.swift */; };
 		D67FAEA02A857B0300BE9BAC /* MockStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAE9F2A857B0300BE9BAC /* MockStock.swift */; };
-		D67FAEA32A857DFF00BE9BAC /* StockInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAEA22A857DFF00BE9BAC /* StockInfoView.swift */; };
 		D67FAEA52A85843C00BE9BAC /* StockColumnHeadersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAEA42A85843C00BE9BAC /* StockColumnHeadersView.swift */; };
 		D67FAEA82A858DB400BE9BAC /* StockColumnBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAEA72A858DB400BE9BAC /* StockColumnBodyView.swift */; };
 /* End PBXBuildFile section */
@@ -33,7 +32,6 @@
 		D67FAE9B2A841D6A00BE9BAC /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		D67FAE9D2A8421D400BE9BAC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D67FAE9F2A857B0300BE9BAC /* MockStock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStock.swift; sourceTree = "<group>"; };
-		D67FAEA22A857DFF00BE9BAC /* StockInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockInfoView.swift; sourceTree = "<group>"; };
 		D67FAEA42A85843C00BE9BAC /* StockColumnHeadersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockColumnHeadersView.swift; sourceTree = "<group>"; };
 		D67FAEA72A858DB400BE9BAC /* StockColumnBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockColumnBodyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -271,7 +269,6 @@
 			isa = PBXGroup;
 			children = (
 				D67FAE972A841C9000BE9BAC /* ScanView.swift */,
-				D67FAEA22A857DFF00BE9BAC /* StockInfoView.swift */,
 				D67FAEA42A85843C00BE9BAC /* StockColumnHeadersView.swift */,
 				D67FAEA72A858DB400BE9BAC /* StockColumnBodyView.swift */,
 			);
@@ -358,7 +355,6 @@
 				D63C409B2A830E4200131604 /* ContentView.swift in Sources */,
 				D67FAEA82A858DB400BE9BAC /* StockColumnBodyView.swift in Sources */,
 				D67FAEA52A85843C00BE9BAC /* StockColumnHeadersView.swift in Sources */,
-				D67FAEA32A857DFF00BE9BAC /* StockInfoView.swift in Sources */,
 				D67FAE982A841C9000BE9BAC /* ScanView.swift in Sources */,
 				D67FAE9E2A8421D400BE9BAC /* User.swift in Sources */,
 				D67FAE932A841B7E00BE9BAC /* ProfileView.swift in Sources */,
