@@ -18,6 +18,9 @@
 		D67FAEA02A857B0300BE9BAC /* MockStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAE9F2A857B0300BE9BAC /* MockStock.swift */; };
 		D67FAEA52A85843C00BE9BAC /* StockColumnHeadersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAEA42A85843C00BE9BAC /* StockColumnHeadersView.swift */; };
 		D67FAEA82A858DB400BE9BAC /* StockColumnBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAEA72A858DB400BE9BAC /* StockColumnBodyView.swift */; };
+		D67FAEAA2A8C0D9200BE9BAC /* CircularProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAEA92A8C0D9200BE9BAC /* CircularProfileImageView.swift */; };
+		D67FAEAD2A8C0E2400BE9BAC /* LegalNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAEAC2A8C0E2400BE9BAC /* LegalNoticeView.swift */; };
+		D67FAEAF2A8C12CC00BE9BAC /* LogoutButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAEAE2A8C12CC00BE9BAC /* LogoutButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		D67FAE9F2A857B0300BE9BAC /* MockStock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStock.swift; sourceTree = "<group>"; };
 		D67FAEA42A85843C00BE9BAC /* StockColumnHeadersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockColumnHeadersView.swift; sourceTree = "<group>"; };
 		D67FAEA72A858DB400BE9BAC /* StockColumnBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockColumnBodyView.swift; sourceTree = "<group>"; };
+		D67FAEA92A8C0D9200BE9BAC /* CircularProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProfileImageView.swift; sourceTree = "<group>"; };
+		D67FAEAC2A8C0E2400BE9BAC /* LegalNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalNoticeView.swift; sourceTree = "<group>"; };
+		D67FAEAE2A8C12CC00BE9BAC /* LogoutButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +193,9 @@
 		D67FAE892A841A7400BE9BAC /* GlobalComponents */ = {
 			isa = PBXGroup;
 			children = (
+				D67FAEA92A8C0D9200BE9BAC /* CircularProfileImageView.swift */,
+				D67FAEAC2A8C0E2400BE9BAC /* LegalNoticeView.swift */,
+				D67FAEAE2A8C12CC00BE9BAC /* LogoutButtonView.swift */,
 			);
 			path = GlobalComponents;
 			sourceTree = "<group>";
@@ -355,12 +364,15 @@
 				D63C409B2A830E4200131604 /* ContentView.swift in Sources */,
 				D67FAEA82A858DB400BE9BAC /* StockColumnBodyView.swift in Sources */,
 				D67FAEA52A85843C00BE9BAC /* StockColumnHeadersView.swift in Sources */,
+				D67FAEAD2A8C0E2400BE9BAC /* LegalNoticeView.swift in Sources */,
 				D67FAE982A841C9000BE9BAC /* ScanView.swift in Sources */,
 				D67FAE9E2A8421D400BE9BAC /* User.swift in Sources */,
+				D67FAEAF2A8C12CC00BE9BAC /* LogoutButtonView.swift in Sources */,
 				D67FAE932A841B7E00BE9BAC /* ProfileView.swift in Sources */,
 				D67FAEA02A857B0300BE9BAC /* MockStock.swift in Sources */,
 				D63C40992A830E4200131604 /* StockScannerApp.swift in Sources */,
 				D67FAE9C2A841D6A00BE9BAC /* MainTabView.swift in Sources */,
+				D67FAEAA2A8C0D9200BE9BAC /* CircularProfileImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
