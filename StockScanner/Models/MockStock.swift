@@ -21,6 +21,23 @@ extension MockStock{
         .init(id: NSUUID().uuidString, name: "SVFD", price: "1.48", gap: "133.8", float: "3.95M", volume: "4.81M"),
         .init(id: NSUUID().uuidString, name: "APPL", price: "1.48", gap: "133.8", float: "3.95M", volume: "4.81M"),
         .init(id: NSUUID().uuidString, name: "MSF", price: "1.48", gap: "133.8", float: "3.95M", volume: "4.81M"),
+        .init(id: NSUUID().uuidString, name: "RIOT", price: "1.48", gap: "133.8", float: "3.95M", volume: "4.81M"),
+        
+        .init(id: NSUUID().uuidString, name: "SVFD", price: "1.48", gap: "133.8", float: "3.95M", volume: "4.81M"),
+        .init(id: NSUUID().uuidString, name: "APPL", price: "1.48", gap: "133.8", float: "3.95M", volume: "4.81M"),
+        .init(id: NSUUID().uuidString, name: "MSF", price: "1.48", gap: "133.8", float: "3.95M", volume: "4.81M"),
+        .init(id: NSUUID().uuidString, name: "RIOT", price: "1.48", gap: "133.8", float: "3.95M", volume: "4.81M"),
+        .init(id: NSUUID().uuidString, name: "SVFD", price: "1.48", gap: "133.8", float: "3.95M", volume: "4.81M"),
+        .init(id: NSUUID().uuidString, name: "APPL", price: "1.48", gap: "133.8", float: "3.95M", volume: "4.81M"),
+        .init(id: NSUUID().uuidString, name: "MSF", price: "1.48", gap: "133.8", float: "3.95M", volume: "4.81M"),
+        .init(id: NSUUID().uuidString, name: "RIOT", price: "1.48", gap: "133.8", float: "3.95M", volume: "4.81M"),
+        .init(id: NSUUID().uuidString, name: "SVFD", price: "1.48", gap: "133.8", float: "3.95M", volume: "4.81M"),
+        .init(id: NSUUID().uuidString, name: "APPL", price: "1.48", gap: "133.8", float: "3.95M", volume: "4.81M"),
+        .init(id: NSUUID().uuidString, name: "MSF", price: "1.48", gap: "133.8", float: "3.95M", volume: "4.81M"),
+        .init(id: NSUUID().uuidString, name: "RIOT", price: "1.48", gap: "133.8", float: "3.95M", volume: "4.81M"),
+        .init(id: NSUUID().uuidString, name: "SVFD", price: "1.48", gap: "133.8", float: "3.95M", volume: "4.81M"),
+        .init(id: NSUUID().uuidString, name: "APPL", price: "1.48", gap: "133.8", float: "3.95M", volume: "4.81M"),
+        .init(id: NSUUID().uuidString, name: "MSF", price: "1.48", gap: "133.8", float: "3.95M", volume: "4.81M"),
         .init(id: NSUUID().uuidString, name: "RIOT", price: "1.48", gap: "133.8", float: "3.95M", volume: "4.81M")
     ]
 }
