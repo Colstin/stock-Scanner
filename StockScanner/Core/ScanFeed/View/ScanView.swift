@@ -45,7 +45,7 @@ struct ScanView: View {
          */
         
         NavigationStack{
-            ScrollView{
+            ScrollView(showsIndicators: false){
                 LazyVGrid(columns: columns, spacing: 10, pinnedViews: [.sectionHeaders]) {
                     
                     Section {
@@ -71,7 +71,7 @@ struct ScanView: View {
                         print("Edit Button")
                     } label: {
                         Image(systemName: "gearshape.fill")
-                            .foregroundColor(Color("blackwhite"))
+                            .foregroundColor(Color("greywhite"))
                             .font(.subheadline)
                     }
 

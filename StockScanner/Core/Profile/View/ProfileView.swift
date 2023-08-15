@@ -10,16 +10,60 @@ import SwiftUI
 struct ProfileView: View {
     var body: some View {
         VStack {
-            Text("[ Profile View ]")
-                .padding(.bottom, 25)
             
-            Text("Username: Colstin_1")
-            Text("Subscription: Active")
+            Spacer()
+            // MARK: Username/ Edit
+                Button {
+                    print("edit")
+                } label: {
+                    HStack {
+                        Text("@Colstin_1")
+                        Image(systemName: "pencil.circle")
+                           
+                    }
+                    .foregroundColor(Color("blackwhite"))
+                    .font(.system(size: 20))
+                    .fontWeight(.bold)
+                    .padding()
+                    
+                }
             
-            Text("Sign Out")
-        }
-        
+            
        
+            
+            // MARK: Subscription Status
+            HStack {
+                Text("Subscription: ")
+                    .bold()
+                Text("Active")
+                    .foregroundColor(.green)
+            }
+            Text("Expires: 3/14/2024")
+                .font(.subheadline)
+                .foregroundColor(.gray)
+            
+            Spacer()
+            Spacer()
+            Spacer()
+            
+            // MARK: Log out
+            Button {
+                print("Log Out")
+            } label: {
+                Text("Log out")
+                    .font(.headline)
+                    .foregroundColor(.green)
+                    .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.green, lineWidth: 2)
+                    )
+                    .padding()
+     
+            }
+            Spacer()
+            
+        }
     }
 }
 
