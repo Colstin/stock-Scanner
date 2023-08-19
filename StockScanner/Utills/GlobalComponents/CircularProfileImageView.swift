@@ -10,18 +10,13 @@ import SwiftUI
 struct CircularProfileImageView: View {
     var body: some View {
         VStack {
-            Image(systemName: "person.circle.fill")
+            Image(systemName: "person.crop.circle.badge.plus")
                 .resizable()
-                .frame(width: 80, height: 80)
-                .clipShape(Circle())
-                .foregroundColor(Color(.systemGray4))
-                .overlay(
-                    Image(systemName: "pencil.circle")
-                        .resizable()
-                        .frame(width: 25, height: 25)
-                        .foregroundColor(Color("blackwhite"))
-                        .offset(x: 20, y: -10), alignment: .bottomTrailing
-                )   
+                .frame(width: 95, height: 80)
+                .symbolRenderingMode(.palette)
+                .foregroundStyle(Color(.systemBlue), Color(.systemGray3))
+                .scaleEffect(x: -1, y: 1)
+            
         }
     }
 }

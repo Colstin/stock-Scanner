@@ -14,25 +14,30 @@ struct ProfileView: View {
                 
                 Spacer()
                 // MARK: Username/ Edit
-                VStack{
+                VStack(alignment: .center){
                     Button {
                         print("edit")
                     } label: {
                         CircularProfileImageView()
+                            .padding(.leading)
                     }
                     
-                    Text("@Colstin_1")
+                    Text("@Colstin1")
                         .foregroundColor(Color("blackwhite"))
                         .font(.system(size: 20))
                         .fontWeight(.bold)
-                        .padding()
+                        .padding(.vertical)
+                        
                     
                     // MARK: Subscription Status
                     HStack {
                         Text("Subscription: ")
                             .bold()
-                        Text("Active")
-                            .foregroundColor(.green)
+                        Button {
+                            print("Active Subscripion")
+                        } label: {
+                            ActiveButtonComponent()
+                        }
                     }
                     .padding(.top, 20)
                     

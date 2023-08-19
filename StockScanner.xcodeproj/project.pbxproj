@@ -21,6 +21,7 @@
 		D67FAEAA2A8C0D9200BE9BAC /* CircularProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAEA92A8C0D9200BE9BAC /* CircularProfileImageView.swift */; };
 		D67FAEAD2A8C0E2400BE9BAC /* LegalNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAEAC2A8C0E2400BE9BAC /* LegalNoticeView.swift */; };
 		D67FAEAF2A8C12CC00BE9BAC /* LogoutButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAEAE2A8C12CC00BE9BAC /* LogoutButtonView.swift */; };
+		D67FAEB22A915CF700BE9BAC /* ActiveButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAEB12A915CF700BE9BAC /* ActiveButtonComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		D67FAEA92A8C0D9200BE9BAC /* CircularProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProfileImageView.swift; sourceTree = "<group>"; };
 		D67FAEAC2A8C0E2400BE9BAC /* LegalNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalNoticeView.swift; sourceTree = "<group>"; };
 		D67FAEAE2A8C12CC00BE9BAC /* LogoutButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButtonView.swift; sourceTree = "<group>"; };
+		D67FAEB12A915CF700BE9BAC /* ActiveButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveButtonComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 		D67FAE912A841B3900BE9BAC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D67FAEB12A915CF700BE9BAC /* ActiveButtonComponent.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				D63C40992A830E4200131604 /* StockScannerApp.swift in Sources */,
 				D67FAE9C2A841D6A00BE9BAC /* MainTabView.swift in Sources */,
 				D67FAEAA2A8C0D9200BE9BAC /* CircularProfileImageView.swift in Sources */,
+				D67FAEB22A915CF700BE9BAC /* ActiveButtonComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
