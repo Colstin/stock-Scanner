@@ -18,8 +18,10 @@ struct StockScannerApp: App {
 
 /*
  TODO: Complete these
- 1. Make body colors based on the numbers dynamic
- 2. Use number formatter to make sure numbers are not big
+ 0. Create View Model
+ 1. Ensure our data model is correct
+ 2. Ensure we are able to decode the Json data into our data model
+ 3. Try and populate the Grid with our new data model
  
  
  

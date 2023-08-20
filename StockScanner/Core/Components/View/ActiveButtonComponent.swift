@@ -12,12 +12,13 @@ struct ActiveButtonComponent: View {
         HStack{
             Text("Active")
                 .foregroundColor(.green)
-                
+                .bold()
             Image(systemName: "pencil.circle")
-                .font(.system(size: 20))
+                .font(.body)
+                .imageScale(.medium)
                 .foregroundColor(Color("greywhite"))
         }
-        .bold()
+        //
     }
 }
 
