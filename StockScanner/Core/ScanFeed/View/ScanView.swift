@@ -10,6 +10,7 @@ import SwiftUI
 struct ScanView: View {
     
     let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 5)
+    @StateObject private var viewModel = ScanViewModel()
     
     var body: some View { 
         NavigationStack{
