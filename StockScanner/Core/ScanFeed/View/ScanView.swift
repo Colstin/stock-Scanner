@@ -10,17 +10,19 @@ import SwiftUI
 struct ScanView: View {
     
     let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 5)
-    @StateObject private var viewModel = ScanViewModel()
+    @ObservedObject private var viewModel = ScanViewModel()
     
     var body: some View { 
         NavigationStack{
             ScrollView(showsIndicators: false){
                 LazyVGrid(columns: columns, spacing: 10, pinnedViews: [.sectionHeaders]) {
-                    
                     Section {
-                        ForEach(MockStock.MOCK_STOCK) { stock in
-                            StockColumnBodyView(stock: stock)
+                        if let stock = viewModel.stock {
+                            ForEach(stock.data.prefix(30), id: \.symbol) { stockdata in
+                                StockColumnBodyView(stockData: stockdata)
+                            }
                         }
+                        
                     } header: {
                         StockColumnHeadersView()
                     }

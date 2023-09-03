@@ -9,7 +9,6 @@ import SwiftUI
 
 struct StockColumnHeadersView: View {
     var body: some View {
-        //Anything but group will glitch it, can see it here but it works
         HStack{
             Text("Name")
             Spacer()
@@ -37,10 +36,7 @@ struct StockColumnHeadersView: View {
         .padding(.horizontal, 20)
         .frame(maxWidth: 680)
         .background(Color(.systemGray3))
-        
-        //.cornerRadius(10)
         .font(.headline)
-           
     }
 }
 
