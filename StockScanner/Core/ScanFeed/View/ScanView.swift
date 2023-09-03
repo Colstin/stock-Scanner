@@ -21,6 +21,8 @@ struct ScanView: View {
                             ForEach(stock.data.prefix(30), id: \.symbol) { stockdata in
                                 StockColumnBodyView(stockData: stockdata)
                             }
+                        } else {
+                            ProgressView()
                         }
                         
                     } header: {

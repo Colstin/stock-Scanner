@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D620905D2AA521B9004F9E92 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620905C2AA521B9004F9E92 /* Stock.swift */; };
 		D62090602AA52311004F9E92 /* StockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620905F2AA52311004F9E92 /* StockError.swift */; };
+		D62090622AA52EA5004F9E92 /* StockQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62090612AA52EA5004F9E92 /* StockQuote.swift */; };
+		D62090642AA52EDA004F9E92 /* StockStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62090632AA52EDA004F9E92 /* StockStatistics.swift */; };
 		D63C40992A830E4200131604 /* StockScannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63C40982A830E4200131604 /* StockScannerApp.swift */; };
 		D63C409B2A830E4200131604 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63C409A2A830E4200131604 /* ContentView.swift */; };
 		D63C409D2A830E4300131604 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D63C409C2A830E4300131604 /* Assets.xcassets */; };
@@ -30,6 +32,8 @@
 /* Begin PBXFileReference section */
 		D620905C2AA521B9004F9E92 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		D620905F2AA52311004F9E92 /* StockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockError.swift; sourceTree = "<group>"; };
+		D62090612AA52EA5004F9E92 /* StockQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockQuote.swift; sourceTree = "<group>"; };
+		D62090632AA52EDA004F9E92 /* StockStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockStatistics.swift; sourceTree = "<group>"; };
 		D63C40952A830E4200131604 /* StockScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D63C40982A830E4200131604 /* StockScannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockScannerApp.swift; sourceTree = "<group>"; };
 		D63C409A2A830E4200131604 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 				D67FAE9D2A8421D400BE9BAC /* User.swift */,
 				D67FAE9F2A857B0300BE9BAC /* MockStock.swift */,
 				D620905C2AA521B9004F9E92 /* Stock.swift */,
+				D62090612AA52EA5004F9E92 /* StockQuote.swift */,
+				D62090632AA52EDA004F9E92 /* StockStatistics.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -388,10 +394,12 @@
 				D67FAECE2A92B99900BE9BAC /* ScanViewModel.swift in Sources */,
 				D67FAE9E2A8421D400BE9BAC /* User.swift in Sources */,
 				D67FAEAF2A8C12CC00BE9BAC /* LogoutButtonView.swift in Sources */,
+				D62090642AA52EDA004F9E92 /* StockStatistics.swift in Sources */,
 				D67FAE932A841B7E00BE9BAC /* ProfileView.swift in Sources */,
 				D620905D2AA521B9004F9E92 /* Stock.swift in Sources */,
 				D62090602AA52311004F9E92 /* StockError.swift in Sources */,
 				D67FAEA02A857B0300BE9BAC /* MockStock.swift in Sources */,
+				D62090622AA52EA5004F9E92 /* StockQuote.swift in Sources */,
 				D6AC0D0A2AA51CFD0029F59B /* StockColumnHeadersView.swift in Sources */,
 				D63C40992A830E4200131604 /* StockScannerApp.swift in Sources */,
 				D67FAE9C2A841D6A00BE9BAC /* MainTabView.swift in Sources */,

@@ -12,22 +12,7 @@ struct StockColumnBodyView: View {
    let stockData: Data
     
     var body: some View {
-        // same issue which is why we use Goup
-//        Group{
-//            Text(stock.name)
-//            Text(stock.price)
-//            Text(stock.gap)
-//            Text(stock.float)
-//                .padding(10)
-//                .background(Color(.systemGreen))
-//                .cornerRadius(10)
-//            Text(stock.volume)
-//                .padding(10)
-//                .background(Color(.systemBlue))
-//                .cornerRadius(10)
-//        }
-//        .padding(.bottom)
-        
+        // Use Group here anything else will glitch it
         Group{
            Text(stockData.symbol)
             Text("'1.44'")
