@@ -18,10 +18,7 @@ struct StockScannerApp: App {
 
 /*
  TODO: Complete these
- 0. Create View Model
- 1. Ensure our data model is correct
- 2. Ensure we are able to decode the Json data into our data model
- 3. Try and populate the Grid with our new data model
+ 0. uncomment Init() to see data we
  
  
  

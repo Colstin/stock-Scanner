@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct StockColumnHeadersView: View {
+    
+    let horizontalPadding: CGFloat?
+    
     var body: some View {
-        HStack{
+        HStack(){
             Text("Name")
             Spacer()
             VStack {
@@ -31,17 +34,18 @@ struct StockColumnHeadersView: View {
             }
             Spacer()
             Text("Vol")
-        }
-        .padding(.vertical, 3)
-        .padding(.horizontal, 20)
-        .frame(maxWidth: 680)
-        .background(Color(.systemGray3))
-        .font(.headline)
+
+         }
+         .padding(.vertical, 3)
+         .padding(.horizontal, horizontalPadding)
+         .frame(maxWidth: .infinity)
+         .background(Color(.systemGray3))
+         .font(.headline)
     }
 }
 
 struct StockColumnHeadersView_Previews: PreviewProvider {
     static var previews: some View {
-        StockColumnHeadersView()
+        StockColumnHeadersView(horizontalPadding: nil)
     }
 }

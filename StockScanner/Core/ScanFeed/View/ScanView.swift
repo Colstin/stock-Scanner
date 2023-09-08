@@ -9,8 +9,13 @@ import SwiftUI
 
 struct ScanView: View {
     
-    let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 5)
     @ObservedObject private var viewModel = ScanViewModel()
+    @State private var isLandscape = false
+    private var prefixNum = 30
+    
+    private var columns: [GridItem]{
+        Array(repeating: .init(.flexible()), count: 5)
+    }
     
     var body: some View { 
         NavigationStack{
@@ -18,24 +23,39 @@ struct ScanView: View {
                 LazyVGrid(columns: columns, spacing: 10, pinnedViews: [.sectionHeaders]) {
                     Section {
                         if let stock = viewModel.stock {
-                            ForEach(stock.data.prefix(30), id: \.symbol) { stockdata in
+                            ForEach(stock.data.prefix(prefixNum), id: \.symbol) { stockdata in
                                 StockColumnBodyView(stockData: stockdata)
                             }
                         } else {
-                            ProgressView()
+                            //ProgressView().tint(.green)
+                            ForEach(MockStock.MOCK_STOCK.prefix(8)) { stock in
+                                Group {
+                                    Text(stock.name)
+                                    Text(stock.price)
+                                    Text(stock.gap)
+                                    Text(stock.float)
+                                    Text(stock.volume)
+                                }
+                                .padding(.bottom)
+                            }
                         }
-                        
+                      
                     } header: {
-                        StockColumnHeadersView()
+                        if isLandscape {
+                            StockColumnHeadersView(horizontalPadding: 60)
+                        } else {
+                            StockColumnHeadersView(horizontalPadding: nil)
+                        }
                     }
                 }
-                .background(
+                .background (
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color(.systemGray6))
-                        .frame(maxWidth: 680)
-                        .shadow(color: Color("ScanShaddowColor").opacity(0.4), radius: 10, x: 0, y: 4)
+                        .frame(maxWidth: .infinity)
+                        .shadow(color: Color(.systemGreen).opacity(0.2), radius: 10, x: 0, y: 10)
                 )
             }
+            .ignoresSafeArea(edges: .horizontal)
             .navigationTitle("Gap Scanner")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar{
@@ -49,6 +69,14 @@ struct ScanView: View {
                     }
                 }
             }
+            .onAppear{
+                NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main) { _ in
+                    isLandscape = UIDevice.current.orientation.isLandscape
+                }
+            }
+            .onDisappear {
+                NotificationCenter.default.removeObserver(UIDevice.orientationDidChangeNotification)
+            }
         }
     }
 }
@@ -58,3 +86,5 @@ struct ScanView_Previews: PreviewProvider {
         ScanView()
     }
 }
+
+
