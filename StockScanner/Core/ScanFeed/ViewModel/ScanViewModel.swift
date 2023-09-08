@@ -7,13 +7,15 @@
 
 import Foundation
 
+@MainActor
 class ScanViewModel: ObservableObject {
     @Published var stock: Stock?
     
     init (){
-      // fetchStock()
+      //fetchStock()
     }
     
+   
     func fetchStock() {
         Task {
             do {
@@ -30,6 +32,7 @@ class ScanViewModel: ObservableObject {
         }
     }
     
+  
     func getStock() async throws -> Stock  {
         let headers = [
             "X-RapidAPI-Key": "8961206d8cmsh9d61f46c89a5b1bp175481jsnc56c24646245",
