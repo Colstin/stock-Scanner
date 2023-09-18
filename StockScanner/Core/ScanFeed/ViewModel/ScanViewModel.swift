@@ -21,13 +21,13 @@ class ScanViewModel: ObservableObject {
             do {
                 self.stock = try await getStock()
             } catch StockError.invalidURL{
-                print("DEBUG: url issue")
+                print("Error: \(StockError.invalidURL.localizedDescription)")
             } catch StockError.invalidResponse{
-                print("DEBUG: response issue")
+                print("Error: \(StockError.invalidResponse.localizedDescription)")
             } catch StockError.invalidData{
-                print("DEBUG: data issue")
+                print("Error: \(StockError.invalidData.localizedDescription)")
             } catch {
-                print("DEBUG: unexpected issue")
+                print("Error: \(StockError.unkown(error).localizedDescription)")
             }
         }
     }

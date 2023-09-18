@@ -20,7 +20,7 @@ enum StockError: Error, LocalizedError {
         case .invalidResponse:
             return "There was an error with the response"
         case .invalidData:
-            return "The coin Json data cant parse into data model"
+            return "The Json data cant parse into data model"
         case .unkown(let error):
             return error.localizedDescription
         }

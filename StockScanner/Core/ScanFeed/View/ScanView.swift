@@ -22,6 +22,8 @@ struct ScanView: View {
             StockListView(viewModel: viewModel, isLandscape: $isLandscape, prefixNum: prefixNum, columns: columns)
                 .navigationTitle("Gap Scanner")
                 .navigationBarTitleDisplayMode(.inline)
+                //.toolbarBackground(Color(.systemCyan), for: .navigationBar)
+                //.toolbarBackground(.visible, for: .navigationBar)
                 .toolbar{
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
