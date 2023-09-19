@@ -11,29 +11,40 @@ struct StockColumnHeadersView: View {
     
     let horizontalPadding: CGFloat?
     
+    // Header Constants
+    private let nameHeader = "Name"
+    private let priceHeader = "Price"
+    private let gapHeader = "Gap"
+    private let floatHeader = "Float"
+    private let volumeHeader = "Vol"
+    
+    private let dollarSymbol = "($)"
+    private let percentSymbol = "(%)"
+    private let shrSymbol = "(Shr)"
+    
     var body: some View {
         HStack(){
-            Text("Name")
+            Text(nameHeader)
             Spacer()
             VStack {
-                Text("Price")
-                Text("($)")
+                Text(priceHeader)
+                Text(dollarSymbol)
                     .font(.subheadline)
             }
             Spacer()
             VStack {
-                Text("Gap")
-                Text("(%)")
+                Text(gapHeader)
+                Text(percentSymbol)
                     .font(.subheadline)
             }
             Spacer()
             VStack {
-                Text("Float")
-                Text("(Shr)")
+                Text(floatHeader)
+                Text(shrSymbol)
                     .font(.subheadline)
             }
             Spacer()
-            Text("Vol")
+            Text(volumeHeader)
 
          }
          .padding(.vertical, 3)

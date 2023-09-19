@@ -36,7 +36,6 @@ struct StockListView: View {
                                 .padding(.bottom)
                             }
                         }
-                      
                     } header: {
                         if isLandscape {
                             StockColumnHeadersView(horizontalPadding: 60)
@@ -48,33 +47,12 @@ struct StockListView: View {
                 .background (
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color(.systemGray6))
-                        //.padding(.top, calculateTopPadding(prefixNum))
                         .frame(maxWidth: .infinity )
-                       // .frame(minHeight: calculateMinHeight(prefixNum))
                         .shadow(color: Color(.systemGreen).opacity(0.2), radius: 10, x: 0, y: 10)
-                        
                 )
             }
         }
         .ignoresSafeArea(edges: .horizontal)
-    }
-    
-    func calculateTopPadding(_ prefixNum: Int) -> CGFloat? {
-        let paddingValues: [Int: CGFloat] = [
-            5: isLandscape ? 60 : 90,
-            10: isLandscape ? 90 : 120,
-            20: 40
-        ]
-        return paddingValues[prefixNum] ?? nil
-    }
-    
-    func calculateMinHeight(_ preficNum: Int) -> CGFloat? {
-        let heightValues: [Int: CGFloat] = [
-            5: isLandscape ? 420 : 430,
-            10: isLandscape ? 800 : 830,
-            20: isLandscape ? 1000 : 1100
-        ]
-        return heightValues[preficNum] ?? nil
     }
 }
 
@@ -90,24 +68,4 @@ struct StockListView_Previews: PreviewProvider {
 }
 
 
-/*
- .background (
-     RoundedRectangle(cornerRadius: 10)
-         .fill(Color(.systemGray6))
-         //.padding(.top, calculateTopPadding(prefixNum))
-         .frame(maxWidth: .infinity )
-        // .frame(minHeight: calculateMinHeight(prefixNum))
-         .shadow(color: Color(.systemGreen).opacity(0.2), radius: 10, x: 0, y: 10)
-         
- )
- 
- 
- func calculateTopPadding(_ prefixNum: Int) -> CGFloat? {
-     let paddingValues: [Int: CGFloat] = [
-         5: isLandscape ? 60 : 90,
-         10: isLandscape ? 90 : 120,
-         20: 40
-     ]
-     return paddingValues[prefixNum] ?? nil
- }
- */
+
