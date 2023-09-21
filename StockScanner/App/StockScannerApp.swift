@@ -22,9 +22,8 @@ struct StockScannerApp: App {
  
  TODO: Complete these
  0. uncomment Init() to see data we
- 1. New plan is to just get the functionality of 10 and not ten for the top padding and the height no idea why it doesn't work
- 
- 
+ 1. get stock price to populate onto my api list
+ 2. Need to test the Market Movers call for quality
  
  */
 

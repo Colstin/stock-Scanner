@@ -12,7 +12,7 @@ class ScanViewModel: ObservableObject {
     @Published var stock: Stock?
     
     init (){
-      //fetchStock()
+       fetchStock()
     }
     
    

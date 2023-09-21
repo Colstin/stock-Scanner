@@ -15,6 +15,7 @@
 		D63C409B2A830E4200131604 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63C409A2A830E4200131604 /* ContentView.swift */; };
 		D63C409D2A830E4300131604 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D63C409C2A830E4300131604 /* Assets.xcassets */; };
 		D63C40A02A830E4300131604 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D63C409F2A830E4300131604 /* Preview Assets.xcassets */; };
+		D65B95122ABA1ED1005E63A2 /* MostWatched.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65B95112ABA1ED1005E63A2 /* MostWatched.swift */; };
 		D67FAE932A841B7E00BE9BAC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAE922A841B7E00BE9BAC /* ProfileView.swift */; };
 		D67FAE982A841C9000BE9BAC /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAE972A841C9000BE9BAC /* ScanView.swift */; };
 		D67FAE9C2A841D6A00BE9BAC /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAE9B2A841D6A00BE9BAC /* MainTabView.swift */; };
@@ -42,6 +43,7 @@
 		D63C409A2A830E4200131604 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D63C409C2A830E4300131604 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D63C409F2A830E4300131604 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D65B95112ABA1ED1005E63A2 /* MostWatched.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostWatched.swift; sourceTree = "<group>"; };
 		D67FAE812A8417F000BE9BAC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D67FAE922A841B7E00BE9BAC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		D67FAE972A841C9000BE9BAC /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				D67FAE9F2A857B0300BE9BAC /* MockStock.swift */,
+				D65B95112ABA1ED1005E63A2 /* MostWatched.swift */,
 				D620905C2AA521B9004F9E92 /* Stock.swift */,
 				D69252FC2AA7DACA006EA15F /* StockPrice.swift */,
 				D62090612AA52EA5004F9E92 /* StockQuote.swift */,
@@ -362,7 +365,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					D63C40942A830E4200131604 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -417,6 +420,7 @@
 				D620905D2AA521B9004F9E92 /* Stock.swift in Sources */,
 				D62090602AA52311004F9E92 /* StockError.swift in Sources */,
 				D67FAEA02A857B0300BE9BAC /* MockStock.swift in Sources */,
+				D65B95122ABA1ED1005E63A2 /* MostWatched.swift in Sources */,
 				D62090622AA52EA5004F9E92 /* StockQuote.swift in Sources */,
 				D6AC0D0A2AA51CFD0029F59B /* StockColumnHeadersView.swift in Sources */,
 				D63C40992A830E4200131604 /* StockScannerApp.swift in Sources */,
@@ -467,6 +471,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -481,7 +486,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -527,6 +532,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -535,7 +541,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
