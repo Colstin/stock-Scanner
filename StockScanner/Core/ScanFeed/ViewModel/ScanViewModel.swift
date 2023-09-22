@@ -9,10 +9,11 @@ import Foundation
 
 @MainActor
 class ScanViewModel: ObservableObject {
-    @Published var stock: Stock?
+    @Published var stock: [MostWatched] = []
+   // @Published var errorMessage: String? //use this later to add error message to UI
     
     init (){
-       fetchStock()
+       //fetchStock()
     }
     
    
@@ -33,14 +34,13 @@ class ScanViewModel: ObservableObject {
     }
     
   
-    func getStock() async throws -> Stock  {
+    func getStock() async throws -> [MostWatched]  {
         let headers = [
             "X-RapidAPI-Key": "8961206d8cmsh9d61f46c89a5b1bp175481jsnc56c24646245",
-            "X-RapidAPI-Host": "twelve-data1.p.rapidapi.com"
+            "X-RapidAPI-Host": "yahoo-finance15.p.rapidapi.com"
         ]
         
-        let stockURL = "https://twelve-data1.p.rapidapi.com/stocks?exchange=NASDAQ&format=json"
-        
+        let stockURL = "https://yahoo-finance15.p.rapidapi.com/api/yahoo/tr/trending"
         guard let encodedURL = stockURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: encodedURL) else {
             throw StockError.invalidURL
         }
@@ -49,11 +49,11 @@ class ScanViewModel: ObservableObject {
         request.allHTTPHeaderFields = headers
         
         let (data, response) = try await URLSession.shared.data(for: request)
-        
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { throw StockError.invalidResponse }
-        
+
         do {
-            return try JSONDecoder().decode(Stock.self, from: data)
+            let result = try JSONDecoder().decode([MostWatched].self, from: data)
+            return result
         } catch {
             throw StockError.invalidData
         }
@@ -62,6 +62,4 @@ class ScanViewModel: ObservableObject {
 }
 
 
-//  if let dataString = String(data: data, encoding: .utf8){
-//print(dataString)
-//}
+

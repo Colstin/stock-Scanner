@@ -9,12 +9,12 @@ import SwiftUI
 
 struct StockColumnBodyView: View {
    // let stock: MockStock
-   let stockData: Data
+    let stockData: String
     
     var body: some View {
         // Use Group here anything else will glitch it
         Group{
-           Text(stockData.symbol)
+            Text(stockData)
             Text("'1.44'")
             Text("'133.8'")
             Text("3.95M")
@@ -33,7 +33,7 @@ struct StockColumnBodyView: View {
 
 struct StockColumnBodyView_Previews: PreviewProvider {
     static var previews: some View {
-        StockColumnBodyView(stockData: Data(symbol: "Appl", exchange: "NASDAQ"))
+        StockColumnBodyView(stockData: "symbol")
         // StockColumnBodyView(stock: MockStock.MOCK_STOCK[0])
     }
 }

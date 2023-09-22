@@ -7,11 +7,9 @@
 
 import Foundation
 
-struct MostWatched: Codable {
+struct MostWatched: Codable, Hashable {
     var quotes: [String]
 }
-
-
 
 /*
 [
@@ -28,3 +26,6 @@ struct MostWatched: Codable {
   }
 ]
 */
+
+
+

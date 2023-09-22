@@ -19,21 +19,23 @@ struct StockListView: View {
             ZStack {
                 LazyVGrid(columns: columns, spacing: 10, pinnedViews: [.sectionHeaders]) {
                     Section {
-                        if let stock = viewModel.stock {
-                            ForEach(stock.data.prefix(prefixNum), id: \.symbol) { stockdata in
-                                StockColumnBodyView(stockData: stockdata)
-                            }
-                        } else {
-                            //ProgressView().tint(.green)
+                        if viewModel.stock.isEmpty {
+                           // ProgressView().tint(.green)
                             ForEach(MockStock.MOCK_STOCK.prefix(prefixNum)) { stock in
-                                Group {
-                                    Text(stock.name)
-                                    Text(stock.price)
-                                    Text(stock.gap)
-                                    Text(stock.float)
-                                    Text(stock.volume)
+                               Group {
+                                   Text(stock.name)
+                                   Text(stock.price)
+                                   Text(stock.gap)
+                                   Text(stock.float)
+                                   Text(stock.volume)
+                               }
+                               .padding(.bottom)
+                           }
+                        } else {
+                            ForEach(viewModel.stock, id: \.self) { stock in
+                                ForEach(stock.quotes.prefix(prefixNum), id: \.self) { quote in
+                                    StockColumnBodyView(stockData: quote)
                                 }
-                                .padding(.bottom)
                             }
                         }
                     } header: {
