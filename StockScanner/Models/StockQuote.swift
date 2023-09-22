@@ -8,10 +8,10 @@
 import Foundation
 
 struct StockQuote: Codable {
-    let price: Double
-    let change_point: Double
-    var change_percentage: Double
-    var total_vol: String
+    let price: Double?
+    let change_point: Double?
+    var change_percentage: Double?
+    var total_vol: String?
 }
 
 
