@@ -6,13 +6,18 @@
 //
 
 import SwiftUI
+import WebKit
 
 struct ProfileView: View {
+    @Environment(\.colorScheme) var colorScheme
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 30) {
+                TapeWebView(htmlString: TradingViewHTML.generateTickerTapeHTML(for: colorScheme))
+                    .frame(height: 40)
+                    .edgesIgnoringSafeArea(.all )
+                    .disabled(true)
                 
-                Spacer()
                 // MARK: Username/ Edit
                 VStack(alignment: .center){
                     Button {

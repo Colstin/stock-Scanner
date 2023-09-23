@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct CombinedStockData: Identifiable {
+    let id = UUID()
+    let symbol: String
+    let stockQuote: StockQuote?
+}

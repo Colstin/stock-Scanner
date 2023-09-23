@@ -11,10 +11,11 @@ import Foundation
 class ScanViewModel: ObservableObject {
     @Published var stock: [MostWatched] = []
     @Published var quotes: [String: StockQuote] = [:]
+    @Published var combinedStockData: [CombinedStockData] = []
    // @Published var errorMessage: String? //use this later to add error message to UI
     
     init (){
-       fetchStock()
+      // fetchStock()
     }
     
    
@@ -28,6 +29,9 @@ class ScanViewModel: ObservableObject {
                 let symbols = self.stock.flatMap { $0.quotes }
                 self.quotes = try await getStockQuotes(symbols: symbols)
                
+                //Combine Data after both stock quotes are fetched
+               combineData()
+                
             } catch StockError.invalidURL{
                 print("Error: \(StockError.invalidURL.localizedDescription)")
             } catch StockError.invalidResponse{
@@ -92,13 +96,24 @@ class ScanViewModel: ObservableObject {
             do {
                 let quote = try JSONDecoder().decode(StockQuote.self, from: data)
                 quotesDictionary[symbol] = quote
-                //print("\(symbol)")
-               // print("\(quote)")
+                print("\(symbol)")
+                print("\(quote)")
             } catch {
                 throw StockError.invalidData
             }
         }
         return quotesDictionary
+    }
+    
+    func combineData() {
+        combinedStockData = stock.flatMap { mostWatchedData in
+            mostWatchedData.quotes.compactMap { symbol in
+                guard let stockQuote = quotes[symbol] else {
+                    return nil
+                }
+                return CombinedStockData(symbol: symbol, stockQuote: stockQuote)
+            }
+        }
     }
     
 }
