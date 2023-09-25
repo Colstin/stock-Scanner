@@ -13,9 +13,9 @@ struct ProfileView: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 30) {
-                TapeWebView(htmlString: TradingViewHTML.generateTickerTapeHTML(for: colorScheme))
+                TapeWebView(htmlString: TradingViewHTML.generateTickerTapeHTML(colorScheme))
                     .frame(height: 40)
-                    .edgesIgnoringSafeArea(.all )
+                    .edgesIgnoringSafeArea(.all ) 
                     .disabled(true)
                 
                 // MARK: Username/ Edit

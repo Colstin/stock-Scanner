@@ -36,7 +36,7 @@ struct TradingViewHTML {
             """
     
     
-    static func generateTickerTapeHTML(for colorScheme: ColorScheme) -> String {
+    static func generateTickerTapeHTML(_ colorScheme: ColorScheme) -> String {
         let backgroundColor: String
         let colorTheme: String
         
@@ -58,12 +58,13 @@ struct TradingViewHTML {
                   body {
                       background-color: \(backgroundColor);
                   }
+                
               </style>
                </head>
                <body>
                <!-- TradingView Widget BEGIN -->
              
-                 
+       <div class="tradingview-widget-container" style="height: 200px;">
        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
                  {
                  "symbols": [

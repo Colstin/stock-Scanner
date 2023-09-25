@@ -24,13 +24,7 @@ class ScanViewModel: ObservableObject {
             do {
                 // List of Stock Symbols
                 self.stock = try await getStock()
-                
-                // Quotes Data for each symbol
-                let symbols = self.stock.flatMap { $0.quotes }
-                self.quotes = try await getStockQuotes(symbols: symbols)
-               
-                //Combine Data after both stock quotes are fetched
-               combineData()
+
                 
             } catch StockError.invalidURL{
                 print("Error: \(StockError.invalidURL.localizedDescription)")
