@@ -9,22 +9,20 @@ import Foundation
 
 @MainActor
 class ScanViewModel: ObservableObject {
+    // @Published var errorMessage: String? //use this later to add error message to UI
     @Published var stock: [MostWatched] = []
     @Published var quotes: [String: StockQuote] = [:]
-    @Published var combinedStockData: [CombinedStockData] = []
-   // @Published var errorMessage: String? //use this later to add error message to UI
+    @Published var stockScreener: [StockScreener] = []
     
     init (){
-      // fetchStock()
+       fetchStock()
     }
     
    
     func fetchStock() {
         Task {
             do {
-                // List of Stock Symbols
-                self.stock = try await getStock()
-
+                self.stockScreener = try await getScreenerStocks()
                 
             } catch StockError.invalidURL{
                 print("Error: \(StockError.invalidURL.localizedDescription)")
@@ -37,6 +35,34 @@ class ScanViewModel: ObservableObject {
             }
         }
     }
+    
+    func getScreenerStocks() async throws -> [StockScreener] {
+        let apiKeyFM = "e92a60f6ed1a309f20bee7aeebe392db"
+        let headers = [
+            "Accept": "application/json"
+        ]
+        let endpoint = "https://financialmodelingprep.com/api/v3/stock-screener?priceLowerThan=25&volumeMoreThan=500000&Country=US&exchange=NASDAQ&limit=50&apikey=\(apiKeyFM)"
+        
+        guard let encodedURL = endpoint.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: encodedURL) else {
+            throw StockError.invalidURL
+        }
+        var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { throw StockError.invalidResponse }
+        
+        do {
+            let result = try JSONDecoder().decode([StockScreener].self, from: data)
+            return result
+        } catch {
+            throw StockError.invalidData
+        }
+        
+    }
+    
+    
     
   
     func getStock() async throws -> [MostWatched]  {
@@ -63,9 +89,7 @@ class ScanViewModel: ObservableObject {
             throw StockError.invalidData
         }
     }
-    
-    
-    
+
     func getStockQuotes(symbols: [String]) async throws -> [String: StockQuote] {
         var quotesDictionary = [String: StockQuote]()
         
@@ -98,18 +122,7 @@ class ScanViewModel: ObservableObject {
         }
         return quotesDictionary
     }
-    
-    func combineData() {
-        combinedStockData = stock.flatMap { mostWatchedData in
-            mostWatchedData.quotes.compactMap { symbol in
-                guard let stockQuote = quotes[symbol] else {
-                    return nil
-                }
-                return CombinedStockData(symbol: symbol, stockQuote: stockQuote)
-            }
-        }
-    }
-    
+
 }
 
 

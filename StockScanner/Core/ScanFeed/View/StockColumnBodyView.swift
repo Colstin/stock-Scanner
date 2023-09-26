@@ -9,30 +9,26 @@ import SwiftUI
 
 struct StockColumnBodyView: View {
    // let stock: MockStock
-    let stockData: String
-   // let stockQuote: StockQuote?
+    let stockScreener: StockScreener
     
     var body: some View {
         // Use Group here anything else will glitch it
         Group{
-            Text(stockData)
-            
-            //if let quote = stockQuote {
-                Text("price")
-                Text("'133.8'")
-                Text("3.95M")
-                    .padding(10)
-                    .background(Color(.systemGreen))
-                    .cornerRadius(10)
-                Text("3.90M")
-                    .padding(10)
-                    .background(Color(.systemBlue))
-                    .cornerRadius(10)
-           // }
+            Text(stockScreener.symbol)
+            Text(stockScreener.formattedPrice)
+            Text("00.0")
+            Text("0.00M")
+                .padding(10)
+                .background(Color(.systemGreen))
+                .cornerRadius(10)
+            Text(stockScreener.formattedVolume)
+                .padding(10)
+                .background(Color(.systemBlue))
+                .cornerRadius(10)
+      
         }
         .padding(.bottom)
-       
-    }
+    } 
 }
 /*
 struct StockColumnBodyView_Previews: PreviewProvider {

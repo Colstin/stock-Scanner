@@ -7,13 +7,31 @@
 
 import Foundation
 
-class StockScreener: Codable {
+struct StockScreener: Codable {
     let symbol: String
     let companyName: String
-    let price: Int
-    let Volume: Int
+    let price: Double
+    let volume: Int
     let exchangeShortName: String
+    
+    var formattedPrice: String {
+       return String(format: "%.2f", price)
+   }
+    
+    var formattedVolume: String {
+        if volume >= 10_000_000 {
+            return String(format: "%.1fM", Double(volume) / 1_000_000.0 )
+        } else if volume >= 1_000_000 && volume < 10_000_000 {
+            return String(format: "%.2fM", Double(volume) / 1_000_000.0 )
+        } else {
+            return "\(volume / 1_000)K"
+        }
+    }
 }
+
+
+
+
 
 /*
 [

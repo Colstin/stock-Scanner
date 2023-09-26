@@ -19,24 +19,24 @@ struct StockListView: View {
             ZStack {
                 LazyVGrid(columns: columns, spacing: 10, pinnedViews: [.sectionHeaders]) {
                     Section {
-                        if viewModel.stock.isEmpty {
-                           // ProgressView().tint(.green)
-                            ForEach(MockStock.MOCK_STOCK.prefix(prefixNum)) { stock in
-                               Group {
-                                   Text(stock.name)
-                                   Text(stock.price)
-                                   Text(stock.gap)
-                                   Text(stock.float)
-                                   Text(stock.volume)
-                               }
-                               .padding(.bottom)
-                           }
+                        if viewModel.stockScreener.isEmpty {
+                            ProgressView().tint(.green)
+//                            ForEach(MockStock.MOCK_STOCK.prefix(prefixNum)) { stock in
+//                               Group {
+//                                   Text(stock.name)
+//                                   Text(stock.price)
+//                                   Text(stock.gap)
+//                                   Text(stock.float)
+//                                   Text(stock.volume)
+//                               }
+//                               .padding(.bottom)
+//                           }
                         } else {
-                            ForEach(viewModel.stock, id: \.self) { stock in
-                                ForEach(stock.quotes.prefix(prefixNum), id: \.self) { quote in
-                                    StockColumnBodyView(stockData: quote)
-                                }
+                           
+                            ForEach(viewModel.stockScreener, id: \.symbol) { stock in
+                               StockColumnBodyView(stockScreener: stock)
                             }
+                            
                         }
                     } header: {
                         if isLandscape {
