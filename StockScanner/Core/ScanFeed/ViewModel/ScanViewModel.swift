@@ -15,7 +15,7 @@ class ScanViewModel: ObservableObject {
     @Published var stockScreener: [StockScreener] = []
     
     init (){
-       fetchStock()
+       //fetchStock()
     }
     
    

@@ -21,16 +21,18 @@ struct StockListView: View {
                     Section {
                         if viewModel.stockScreener.isEmpty {
                             ProgressView().tint(.green)
-//                            ForEach(MockStock.MOCK_STOCK.prefix(prefixNum)) { stock in
-//                               Group {
-//                                   Text(stock.name)
-//                                   Text(stock.price)
-//                                   Text(stock.gap)
-//                                   Text(stock.float)
-//                                   Text(stock.volume)
-//                               }
-//                               .padding(.bottom)
-//                           }
+                            /*
+                            ForEach(MockStock.MOCK_STOCK.prefix(prefixNum)) { stock in
+                               Group {
+                                   Text(stock.name)
+                                   Text(stock.price)
+                                   Text(stock.gap)
+                                   Text(stock.float)
+                                   Text(stock.volume)
+                               }
+                               .padding(.bottom)
+                           }
+                             */
                         } else {
                            
                             ForEach(viewModel.stockScreener, id: \.symbol) { stock in

@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct StockScannerApp: App {
+    
+    @StateObject var registrationViewModel = RegistrationViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(registrationViewModel)
         }
     }
 }

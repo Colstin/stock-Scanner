@@ -17,10 +17,15 @@ struct MainTabView: View {
                     Image(systemName: "chart.bar.fill")
                 }.tag(0)
             
+            StockSearchView()
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                }.tag(1)
+            
             ProfileView()
                 .tabItem {
                     Image(systemName: "person")
-                }.tag(1)
+                }.tag(2)
         }
         .tint(.green)
     }
