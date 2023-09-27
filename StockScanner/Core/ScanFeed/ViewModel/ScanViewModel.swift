@@ -37,29 +37,34 @@ class ScanViewModel: ObservableObject {
     }
     
     func getScreenerStocks() async throws -> [StockScreener] {
-        let apiKeyFM = "e92a60f6ed1a309f20bee7aeebe392db"
-        let headers = [
-            "Accept": "application/json"
+    
+        var endpointComponents = URLComponents(string: APIConfig.apiURLFM)
+        endpointComponents?.queryItems = [
+            URLQueryItem(name: "priceLowerThan", value: "25"),
+            URLQueryItem(name: "priceMoreThan", value: "0.50"),
+            URLQueryItem(name: "volumeMoreThan", value: "500000"),
+            URLQueryItem(name: "isEtf", value: "false"),
+            URLQueryItem(name: "Country", value: "US"),
+            URLQueryItem(name: "exchange", value: "NASDAQ"),
+            URLQueryItem(name: "limit", value: "1000"),
+            URLQueryItem(name: "apikey", value: APIConfig.apiKeyFM)
         ]
-        let endpoint = "https://financialmodelingprep.com/api/v3/stock-screener?priceLowerThan=25&volumeMoreThan=500000&Country=US&exchange=NASDAQ&limit=50&apikey=\(apiKeyFM)"
         
-        guard let encodedURL = endpoint.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: encodedURL) else {
-            throw StockError.invalidURL
-        }
-        var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        guard let endpoint = endpointComponents?.url else { throw StockError.invalidURL }
+
+        var request = URLRequest(url: endpoint, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         request.httpMethod = "GET"
-        request.allHTTPHeaderFields = headers
+        request.allHTTPHeaderFields = APIConfig.headers
         
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { throw StockError.invalidResponse }
         
         do {
-            let result = try JSONDecoder().decode([StockScreener].self, from: data)
+            let result = try JSONDecoder().decode([StockScreener].self, from: data).sorted(by: { $0.volume > $1.volume })
             return result
         } catch {
             throw StockError.invalidData
         }
-        
     }
     
     
