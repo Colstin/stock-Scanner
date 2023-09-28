@@ -27,6 +27,7 @@ struct TextFieldModifier: ViewModifier {
             .focused($isInputActive)
             .toolbar {
                  ToolbarItem(placement: .keyboard) {
+                    // Spacer()
                      Button("Continue") {
                          isInputActive = false
                      }

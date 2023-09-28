@@ -18,8 +18,8 @@ struct AddEmailView: View {
     var body: some View {
         ZStack {
             Color("landingpage")
-            VStack{
-                CreateInputView(title: title,
+            VStack(spacing: 30){
+                AuthInputView(title: title,
                                 subtitle: subtitle,
                                 placeholder: placeholder,
                                 text: $viewModel.email,
@@ -30,7 +30,8 @@ struct AddEmailView: View {
                         .navigationBarBackButtonHidden()
                 } label: {
                     Text("Continue")
-                        .modifier(ContinueButtonModifier())
+                        .modifier(SolidButtonModifier(paddingValue: 120, cornerValue: 30))
+                       
                 }
             }
             .toolbar {

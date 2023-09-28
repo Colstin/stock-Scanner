@@ -24,11 +24,11 @@
 		D67FAEA82A858DB400BE9BAC /* StockColumnBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAEA72A858DB400BE9BAC /* StockColumnBodyView.swift */; };
 		D67FAEAA2A8C0D9200BE9BAC /* CircularProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAEA92A8C0D9200BE9BAC /* CircularProfileImageView.swift */; };
 		D67FAEAD2A8C0E2400BE9BAC /* LegalNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAEAC2A8C0E2400BE9BAC /* LegalNoticeView.swift */; };
-		D67FAEAF2A8C12CC00BE9BAC /* LogoutButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAEAE2A8C12CC00BE9BAC /* LogoutButtonView.swift */; };
 		D67FAEB22A915CF700BE9BAC /* ActiveButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAEB12A915CF700BE9BAC /* ActiveButtonComponent.swift */; };
 		D67FAECE2A92B99900BE9BAC /* ScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAECD2A92B99900BE9BAC /* ScanViewModel.swift */; };
 		D69252FD2AA7DACA006EA15F /* StockPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69252FC2AA7DACA006EA15F /* StockPrice.swift */; };
 		D69725632AABBF1500C4A0FC /* StockListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69725622AABBF1500C4A0FC /* StockListView.swift */; };
+		D6A5A6AE2AC6335000C0E754 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5A6AD2AC6335000C0E754 /* LoginViewModel.swift */; };
 		D6AAFD032AAA718B00AF9676 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AAFD022AAA718B00AF9676 /* APIConfig.swift */; };
 		D6AC0D0A2AA51CFD0029F59B /* StockColumnHeadersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAEA42A85843C00BE9BAC /* StockColumnHeadersView.swift */; };
 		D6F825172ABE2CD80099A647 /* CombinedStockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F825162ABE2CD80099A647 /* CombinedStockData.swift */; };
@@ -42,10 +42,10 @@
 		D6F8254B2AC4BA930099A647 /* CreatePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8254A2AC4BA930099A647 /* CreatePasswordView.swift */; };
 		D6F8254D2AC4BAB30099A647 /* CompletedSignUpview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8254C2AC4BAB30099A647 /* CompletedSignUpview.swift */; };
 		D6F8254F2AC4BCEE0099A647 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8254E2AC4BCEE0099A647 /* LoginView.swift */; };
-		D6F825512AC4C6830099A647 /* CreateInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F825502AC4C6830099A647 /* CreateInputView.swift */; };
-		D6F825532AC4C83B0099A647 /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F825522AC4C83B0099A647 /* TextFieldModifier.swift */; };
+		D6F825512AC4C6830099A647 /* AuthInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F825502AC4C6830099A647 /* AuthInputView.swift */; };
+		D6F825532AC4C83B0099A647 /* InputModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F825522AC4C83B0099A647 /* InputModifiers.swift */; };
 		D6F825552AC4C99A0099A647 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F825542AC4C99A0099A647 /* RegistrationViewModel.swift */; };
-		D6F825572AC4EE200099A647 /* ContinueButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F825562AC4EE200099A647 /* ContinueButtonModifier.swift */; };
+		D6F825572AC4EE200099A647 /* ButtonModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F825562AC4EE200099A647 /* ButtonModifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,11 +69,11 @@
 		D67FAEA72A858DB400BE9BAC /* StockColumnBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockColumnBodyView.swift; sourceTree = "<group>"; };
 		D67FAEA92A8C0D9200BE9BAC /* CircularProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProfileImageView.swift; sourceTree = "<group>"; };
 		D67FAEAC2A8C0E2400BE9BAC /* LegalNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalNoticeView.swift; sourceTree = "<group>"; };
-		D67FAEAE2A8C12CC00BE9BAC /* LogoutButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButtonView.swift; sourceTree = "<group>"; };
 		D67FAEB12A915CF700BE9BAC /* ActiveButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveButtonComponent.swift; sourceTree = "<group>"; };
 		D67FAECD2A92B99900BE9BAC /* ScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewModel.swift; sourceTree = "<group>"; };
 		D69252FC2AA7DACA006EA15F /* StockPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockPrice.swift; sourceTree = "<group>"; };
 		D69725622AABBF1500C4A0FC /* StockListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockListView.swift; sourceTree = "<group>"; };
+		D6A5A6AD2AC6335000C0E754 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		D6AAFD022AAA718B00AF9676 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
 		D6F825162ABE2CD80099A647 /* CombinedStockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedStockData.swift; sourceTree = "<group>"; };
 		D6F825362ABF725C0099A647 /* TradingViewHTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingViewHTML.swift; sourceTree = "<group>"; };
@@ -86,10 +86,10 @@
 		D6F8254A2AC4BA930099A647 /* CreatePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePasswordView.swift; sourceTree = "<group>"; };
 		D6F8254C2AC4BAB30099A647 /* CompletedSignUpview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedSignUpview.swift; sourceTree = "<group>"; };
 		D6F8254E2AC4BCEE0099A647 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		D6F825502AC4C6830099A647 /* CreateInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateInputView.swift; sourceTree = "<group>"; };
-		D6F825522AC4C83B0099A647 /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
+		D6F825502AC4C6830099A647 /* AuthInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInputView.swift; sourceTree = "<group>"; };
+		D6F825522AC4C83B0099A647 /* InputModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputModifiers.swift; sourceTree = "<group>"; };
 		D6F825542AC4C99A0099A647 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
-		D6F825562AC4EE200099A647 /* ContinueButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButtonModifier.swift; sourceTree = "<group>"; };
+		D6F825562AC4EE200099A647 /* ButtonModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				D620905E2AA522F9004F9E92 /* ErrorHandling */,
-				D67FAEA12A857B8500BE9BAC /* Moifiers */,
+				D67FAEA12A857B8500BE9BAC /* Modifiers */,
 				D67FAE892A841A7400BE9BAC /* GlobalComponents */,
 				D6F8253A2AC0C6EB0099A647 /* Widgets */,
 			);
@@ -255,8 +255,7 @@
 				D67FAEB12A915CF700BE9BAC /* ActiveButtonComponent.swift */,
 				D67FAEA92A8C0D9200BE9BAC /* CircularProfileImageView.swift */,
 				D67FAEAC2A8C0E2400BE9BAC /* LegalNoticeView.swift */,
-				D67FAEAE2A8C12CC00BE9BAC /* LogoutButtonView.swift */,
-				D6F825502AC4C6830099A647 /* CreateInputView.swift */,
+				D6F825502AC4C6830099A647 /* AuthInputView.swift */,
 			);
 			path = GlobalComponents;
 			sourceTree = "<group>";
@@ -265,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				D6F825542AC4C99A0099A647 /* RegistrationViewModel.swift */,
+				D6A5A6AD2AC6335000C0E754 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -340,13 +340,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		D67FAEA12A857B8500BE9BAC /* Moifiers */ = {
+		D67FAEA12A857B8500BE9BAC /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				D6F825522AC4C83B0099A647 /* TextFieldModifier.swift */,
-				D6F825562AC4EE200099A647 /* ContinueButtonModifier.swift */,
+				D6F825522AC4C83B0099A647 /* InputModifiers.swift */,
+				D6F825562AC4EE200099A647 /* ButtonModifiers.swift */,
 			);
-			path = Moifiers;
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 		D6AAFD012AAA709500AF9676 /* ConfidentialData */ = {
@@ -463,17 +463,16 @@
 				D63C409B2A830E4200131604 /* ContentView.swift in Sources */,
 				D6F825552AC4C99A0099A647 /* RegistrationViewModel.swift in Sources */,
 				D67FAEA82A858DB400BE9BAC /* StockColumnBodyView.swift in Sources */,
-				D6F825572AC4EE200099A647 /* ContinueButtonModifier.swift in Sources */,
+				D6F825572AC4EE200099A647 /* ButtonModifiers.swift in Sources */,
 				D67FAEAD2A8C0E2400BE9BAC /* LegalNoticeView.swift in Sources */,
 				D69725632AABBF1500C4A0FC /* StockListView.swift in Sources */,
 				D67FAE982A841C9000BE9BAC /* ScanView.swift in Sources */,
 				D6F8254D2AC4BAB30099A647 /* CompletedSignUpview.swift in Sources */,
 				D67FAECE2A92B99900BE9BAC /* ScanViewModel.swift in Sources */,
 				D67FAE9E2A8421D400BE9BAC /* User.swift in Sources */,
-				D67FAEAF2A8C12CC00BE9BAC /* LogoutButtonView.swift in Sources */,
 				D62090642AA52EDA004F9E92 /* StockExtraData.swift in Sources */,
 				D6F825372ABF725C0099A647 /* TradingViewHTML.swift in Sources */,
-				D6F825532AC4C83B0099A647 /* TextFieldModifier.swift in Sources */,
+				D6F825532AC4C83B0099A647 /* InputModifiers.swift in Sources */,
 				D67FAE932A841B7E00BE9BAC /* ProfileView.swift in Sources */,
 				D620905D2AA521B9004F9E92 /* Stock.swift in Sources */,
 				D62090602AA52311004F9E92 /* StockError.swift in Sources */,
@@ -484,12 +483,13 @@
 				D6F825492AC4BA870099A647 /* CreateUsernameView.swift in Sources */,
 				D6F825412AC4AB1D0099A647 /* StockSearchView.swift in Sources */,
 				D6AC0D0A2AA51CFD0029F59B /* StockColumnHeadersView.swift in Sources */,
-				D6F825512AC4C6830099A647 /* CreateInputView.swift in Sources */,
+				D6F825512AC4C6830099A647 /* AuthInputView.swift in Sources */,
 				D6F8254B2AC4BA930099A647 /* CreatePasswordView.swift in Sources */,
 				D63C40992A830E4200131604 /* StockScannerApp.swift in Sources */,
 				D6AAFD032AAA718B00AF9676 /* APIConfig.swift in Sources */,
 				D6F8253C2AC232F30099A647 /* StockScreener.swift in Sources */,
 				D67FAE9C2A841D6A00BE9BAC /* MainTabView.swift in Sources */,
+				D6A5A6AE2AC6335000C0E754 /* LoginViewModel.swift in Sources */,
 				D6F825432AC4B1120099A647 /* LandingPage.swift in Sources */,
 				D6F825392ABF77190099A647 /* TapeWebView.swift in Sources */,
 				D69252FD2AA7DACA006EA15F /* StockPrice.swift in Sources */,

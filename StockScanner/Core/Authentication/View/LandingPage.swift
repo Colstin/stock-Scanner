@@ -17,13 +17,12 @@ struct LandingPage: View {
     var body: some View {
        
         NavigationStack {
-            // MARK: Title Area
-            
             ZStack {
                 Color("landingpage")
                 VStack {
                     Spacer()
                     
+                    // MARK: Title Area
                     VStack(spacing: 20) {
                         Image(systemName: "chart.xyaxis.line")
                         VStack {
@@ -36,34 +35,22 @@ struct LandingPage: View {
                     
                     Spacer()
                     
-                    //MARK: Log in/ Sign out
+                    //MARK: Sign up/ Log in
                     VStack {
                         NavigationLink {
                             AddEmailView()
                                 .navigationBarBackButtonHidden()
                         } label: {
                             Text(signUp)
-                                  .font(.headline)
-                                  .foregroundColor(Color.white)
-                                  .padding()
-                                  .padding(.horizontal, 84)
-                                  .background(Color(.systemGreen))
-                                  .cornerRadius(10)
+                                .modifier(SolidButtonModifier(paddingValue: 84, cornerValue: 10))
                         }
                         
                         NavigationLink {
                             LoginView()
+                                .navigationBarBackButtonHidden()
                         } label: {
                             Text(logIn)
-                                .font(.headline)
-                                .foregroundColor(Color(.systemGreen))
-                                .padding()
-                                .padding(.horizontal, 90)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color(.systemGreen), lineWidth: 2)
-                                )
-                                .padding(5)
+                                .modifier(OverlayButtonModifier(cornerValue: 10))
                         }
                     }
                     

@@ -41,7 +41,7 @@ struct CompletedSignUpview: View {
                     
                 } label: {
                     Text("Complete")
-                        .modifier(ContinueButtonModifier())
+                        .modifier(SolidButtonModifier(paddingValue: 120, cornerValue: 30))
                 }
                 
             }

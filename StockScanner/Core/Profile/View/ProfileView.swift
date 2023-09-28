@@ -11,61 +11,79 @@ import WebKit
 struct ProfileView: View {
     @Environment(\.colorScheme) var colorScheme
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            VStack(spacing: 30) {
-                TapeWebView(htmlString: TradingViewHTML.generateTickerTapeHTML(colorScheme))
-                    .frame(height: 40)
-                    .edgesIgnoringSafeArea(.all ) 
-                    .disabled(true)
-                
-                // MARK: Username/ Edit
-                VStack(alignment: .center){
-                    Button {
-                        print("edit")
-                    } label: {
-                        CircularProfileImageView()
-                            .padding(.leading)
-                    }
+        NavigationStack {
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 30) {
+                    TapeWebView(htmlString: TradingViewHTML.generateTickerTapeHTML(colorScheme))
+                        .frame(height: 40)
+                        .edgesIgnoringSafeArea(.all ) 
+                        .disabled(true)
                     
-                    Text("@Colstin1")
-                        .foregroundColor(Color("blackwhite"))
-                        .font(.system(size: 20))
-                        .fontWeight(.bold)
-                        .padding(.vertical)
-                        
-                    
-                    // MARK: Subscription Status
-                    HStack {
-                        Text("Subscription: ")
-                            .bold()
+                    // MARK: Username/ Edit
+                    VStack(alignment: .center){
                         Button {
-                            print("Active Subscripion")
+                            print("edit")
                         } label: {
-                            ActiveButtonComponent()
+                            CircularProfileImageView()
+                                .padding(.leading)
                         }
+                        
+                        Text("@Colstin1")
+                            .foregroundColor(Color("blackwhite"))
+                            .font(.system(size: 20))
+                            .fontWeight(.bold)
+                            .padding(.vertical)
+                            
+                        
+                        // MARK: Subscription Status
+                        HStack {
+                            Text("Subscription: ")
+                                .bold()
+                            Button {
+                                print("Active Subscripion")
+                            } label: {
+                                ActiveButtonComponent()
+                            }
+                        }
+                        .padding(.top, 20)
+                        
+                        Text("Expires: 3/14/2024")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                            .italic()
                     }
-                    .padding(.top, 20)
+                  
+                    // MARK: legal
+                    LegalNoticeView()
                     
-                    Text("Expires: 3/14/2024")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                        .italic()
+                    Spacer()
+                    Spacer()
+                    
+                    // MARK: Log out
+                    Button {
+                        print("Log Out")
+                    } label: {
+                        Text("Log out")
+                            .modifier(OverlayButtonModifier(cornerValue: 30))
+                    }
+                    
+                    // MARK: Delete
+                    Button {
+                        print("Delete account")
+                    } label: {
+                        Text("Delete Account")
+                            .foregroundStyle(.red )   
+                    }
                 }
-              
-                // MARK: legal
-                LegalNoticeView()
-                
-                Spacer()
-                Spacer()
-                
-                // MARK: Log out
-                Button {
-                    print("Log Out")
-                } label: {
-                    LogoutButtonView(loginText: "Log Out")
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Image(systemName: "line.3.horizontal")
+                        .imageScale(.large)
                 }
             }
         }
+       
     }
 }
 
