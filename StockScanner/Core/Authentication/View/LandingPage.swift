@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LandingPage: View {
+    @Environment(\.isPresented) var presentationMode
     private let welcome = "Welcome to"
     private let companyName = "Stock Scanner"
     private let signUp = "Sign up"
@@ -19,46 +20,49 @@ struct LandingPage: View {
         NavigationStack {
             ZStack {
                 Color("landingpage")
-                VStack {
-                    Spacer()
-                    
-                    // MARK: Title Area
-                    VStack(spacing: 20) {
-                        Image(systemName: "chart.xyaxis.line")
-                        VStack {
-                            Text(welcome)
-                            Text(companyName)
-                        }
-                        .font(.largeTitle)
-                        .fontWeight(.thin)
-                    }
-                    
-                    Spacer()
-                    
-                    //MARK: Sign up/ Log in
+                LockRotationViewModifier {
                     VStack {
-                        NavigationLink {
-                            AddEmailView()
-                                .navigationBarBackButtonHidden()
-                        } label: {
-                            Text(signUp)
-                                .modifier(SolidButtonModifier(paddingValue: 84, cornerValue: 10))
+                        Spacer()
+                        
+                        // MARK: Title Area
+                        VStack(spacing: 20) {
+                            Image(systemName: "chart.xyaxis.line")
+                            VStack {
+                                Text(welcome)
+                                Text(companyName)
+                            }
+                            .font(.largeTitle)
+                            .fontWeight(.thin)
                         }
                         
-                        NavigationLink {
-                            LoginView()
-                                .navigationBarBackButtonHidden()
-                        } label: {
-                            Text(logIn)
-                                .modifier(OverlayButtonModifier(cornerValue: 10))
+                        Spacer()
+                        
+                        //MARK: Sign up/ Log in
+                        VStack {
+                            NavigationLink {
+                                AddEmailView()
+                                    .navigationBarBackButtonHidden()
+                            } label: {
+                                Text(signUp)
+                                    .modifier(SolidButtonModifier(paddingValue: 84, cornerValue: 10))
+                            }
+                            
+                            NavigationLink {
+                                LoginView()
+                                    .navigationBarBackButtonHidden()
+                            } label: {
+                                Text(logIn)
+                                    .modifier(OverlayButtonModifier(cornerValue: 10))
+                            }
                         }
+                        
+                        Spacer()
                     }
-                    
-                    Spacer()
                 }
+                
+                
             }
             .ignoresSafeArea()
-           
         }
     }
 }
@@ -66,3 +70,5 @@ struct LandingPage: View {
 #Preview {
     LandingPage()
 }
+
+// .rotationEffect(.degrees(0), anchor: .center)/

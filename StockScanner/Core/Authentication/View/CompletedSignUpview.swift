@@ -19,7 +19,6 @@ struct CompletedSignUpview: View {
         ZStack {
             Color("landingpage")
             VStack(spacing: 50){
-                
                 VStack(spacing: 15) {
                     VStack {
                         Text(welcomeMessage)
@@ -43,7 +42,6 @@ struct CompletedSignUpview: View {
                     Text("Complete")
                         .modifier(SolidButtonModifier(paddingValue: 120, cornerValue: 30))
                 }
-                
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
