@@ -30,6 +30,7 @@
 		D69725632AABBF1500C4A0FC /* StockListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69725622AABBF1500C4A0FC /* StockListView.swift */; };
 		D6A5A6AE2AC6335000C0E754 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5A6AD2AC6335000C0E754 /* LoginViewModel.swift */; };
 		D6A5A6B02AC746AB00C0E754 /* LockRotationViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5A6AF2AC746AB00C0E754 /* LockRotationViewModifier.swift */; };
+		D6A5A6B22AC75C9300C0E754 /* OrientationLockModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A5A6B12AC75C9300C0E754 /* OrientationLockModifier.swift */; };
 		D6AAFD032AAA718B00AF9676 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AAFD022AAA718B00AF9676 /* APIConfig.swift */; };
 		D6AC0D0A2AA51CFD0029F59B /* StockColumnHeadersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FAEA42A85843C00BE9BAC /* StockColumnHeadersView.swift */; };
 		D6F825172ABE2CD80099A647 /* CombinedStockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F825162ABE2CD80099A647 /* CombinedStockData.swift */; };
@@ -76,6 +77,7 @@
 		D69725622AABBF1500C4A0FC /* StockListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockListView.swift; sourceTree = "<group>"; };
 		D6A5A6AD2AC6335000C0E754 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		D6A5A6AF2AC746AB00C0E754 /* LockRotationViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockRotationViewModifier.swift; sourceTree = "<group>"; };
+		D6A5A6B12AC75C9300C0E754 /* OrientationLockModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationLockModifier.swift; sourceTree = "<group>"; };
 		D6AAFD022AAA718B00AF9676 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
 		D6F825162ABE2CD80099A647 /* CombinedStockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedStockData.swift; sourceTree = "<group>"; };
 		D6F825362ABF725C0099A647 /* TradingViewHTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingViewHTML.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				D6F825562AC4EE200099A647 /* ButtonModifiers.swift */,
 				D6F825522AC4C83B0099A647 /* InputModifiers.swift */,
 				D6A5A6AF2AC746AB00C0E754 /* LockRotationViewModifier.swift */,
+				D6A5A6B12AC75C9300C0E754 /* OrientationLockModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				D6F825392ABF77190099A647 /* TapeWebView.swift in Sources */,
 				D69252FD2AA7DACA006EA15F /* StockPrice.swift in Sources */,
 				D6F825172ABE2CD80099A647 /* CombinedStockData.swift in Sources */,
+				D6A5A6B22AC75C9300C0E754 /* OrientationLockModifier.swift in Sources */,
 				D6F8254F2AC4BCEE0099A647 /* LoginView.swift in Sources */,
 				D67FAEAA2A8C0D9200BE9BAC /* CircularProfileImageView.swift in Sources */,
 				D67FAEB22A915CF700BE9BAC /* ActiveButtonComponent.swift in Sources */,

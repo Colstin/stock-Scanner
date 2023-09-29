@@ -43,6 +43,7 @@ struct CreateUsernameView: View {
             }
         }
         .ignoresSafeArea()
+        .modifier(OrientationLockModifier(lockOrientation: .portrait))
     }
 }
 

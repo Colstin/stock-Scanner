@@ -54,6 +54,7 @@ struct CompletedSignUpview: View {
             }
         }
         .ignoresSafeArea()
+        .modifier(OrientationLockModifier(lockOrientation: .portrait))
     }
 }
 

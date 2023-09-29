@@ -44,6 +44,7 @@ struct CreatePasswordView: View {
             }
         }
         .ignoresSafeArea()
+        .modifier(OrientationLockModifier(lockOrientation: .portrait))
     }
 }
 

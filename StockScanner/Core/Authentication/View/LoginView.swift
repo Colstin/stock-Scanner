@@ -69,6 +69,7 @@ struct LoginView: View {
             }
         }
         .ignoresSafeArea()
+        .modifier(OrientationLockModifier(lockOrientation: .portrait))
     }
 }
 

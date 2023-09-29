@@ -20,50 +20,48 @@ struct LandingPage: View {
         NavigationStack {
             ZStack {
                 Color("landingpage")
-                LockRotationViewModifier {
-                    VStack {
-                        Spacer()
-                        
-                        // MARK: Title Area
-                        VStack(spacing: 20) {
-                            Image(systemName: "chart.xyaxis.line")
-                            VStack {
-                                Text(welcome)
-                                Text(companyName)
-                            }
-                            .font(.largeTitle)
-                            .fontWeight(.thin)
-                        }
-                        
-                        Spacer()
-                        
-                        //MARK: Sign up/ Log in
+                
+                VStack {
+                    Spacer()
+                    
+                    // MARK: Title Area
+                    VStack(spacing: 20) {
+                        Image(systemName: "chart.xyaxis.line")
                         VStack {
-                            NavigationLink {
-                                AddEmailView()
-                                    .navigationBarBackButtonHidden()
-                            } label: {
-                                Text(signUp)
-                                    .modifier(SolidButtonModifier(paddingValue: 84, cornerValue: 10))
-                            }
-                            
-                            NavigationLink {
-                                LoginView()
-                                    .navigationBarBackButtonHidden()
-                            } label: {
-                                Text(logIn)
-                                    .modifier(OverlayButtonModifier(cornerValue: 10))
-                            }
+                            Text(welcome)
+                            Text(companyName)
+                        }
+                        .font(.largeTitle)
+                        .fontWeight(.thin)
+                    }
+                    
+                    Spacer()
+                    
+                    //MARK: Sign up/ Log in
+                    VStack {
+                        NavigationLink {
+                            AddEmailView()
+                                .navigationBarBackButtonHidden()
+                        } label: {
+                            Text(signUp)
+                                .modifier(SolidButtonModifier(paddingValue: 84, cornerValue: 10))
                         }
                         
-                        Spacer()
+                        NavigationLink {
+                            LoginView()
+                                .navigationBarBackButtonHidden()
+                        } label: {
+                            Text(logIn)
+                                .modifier(OverlayButtonModifier(cornerValue: 10))
+                        }
                     }
+                    
+                    Spacer()
                 }
-                
-                
             }
             .ignoresSafeArea()
         }
+        .modifier(OrientationLockModifier(lockOrientation: .portrait))
     }
 }
 
