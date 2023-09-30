@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct CreateUsernameView: View {
-    @Environment(\.dismiss) var dismiss
     @EnvironmentObject var viewModel: RegistrationViewModel
  
     private let title = "Create a Username"
     private let subtitle = "Be Creative with Your Username"
     private let placeholder = "@Username"
+    private let backButtonName = "chevron.left"
+    
     var body: some View {
         ZStack {
             Color("landingpage")
@@ -32,15 +33,7 @@ struct CreateUsernameView: View {
                         .modifier(SolidButtonModifier(paddingValue: 120, cornerValue: 30))
                 }
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Image(systemName: "chevron.left")
-                        .imageScale(.large)
-                        .onTapGesture {
-                            dismiss()
-                        }
-                }
-            }
+            .modifier(BackButtonModifier(buttonImage: backButtonName))
         }
         .ignoresSafeArea()
         .modifier(OrientationLockModifier(lockOrientation: .portrait))

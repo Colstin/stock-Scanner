@@ -38,3 +38,22 @@ struct OverlayButtonModifier: ViewModifier {
             .padding(5)
     }
 }
+
+
+struct BackButtonModifier: ViewModifier {
+    @Environment(\.dismiss) private var dismiss
+    let buttonImage: String
+    
+    func body(content: Content) -> some View {
+        content
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Image(systemName: buttonImage)
+                        .imageScale(.large)
+                        .onTapGesture {
+                            dismiss()
+                        }
+                }
+            }
+    }
+}

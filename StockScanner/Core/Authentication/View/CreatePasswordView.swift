@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct CreatePasswordView: View {
-    @Environment(\.dismiss) var dismiss
     @EnvironmentObject var viewModel: RegistrationViewModel
  
     private let title = "Choose a Password"
     private let subtitle = ""
     private let placeholder = "Password"
+    private let backButtonName = "chevron.left"
     
     var body: some View {
         ZStack {
@@ -33,15 +33,7 @@ struct CreatePasswordView: View {
                         .modifier(SolidButtonModifier(paddingValue: 120, cornerValue: 30))
                 }
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Image(systemName: "chevron.left")
-                        .imageScale(.large)
-                        .onTapGesture {
-                            dismiss()
-                        }
-                }
-            }
+            .modifier(BackButtonModifier(buttonImage: backButtonName))
         }
         .ignoresSafeArea()
         .modifier(OrientationLockModifier(lockOrientation: .portrait))

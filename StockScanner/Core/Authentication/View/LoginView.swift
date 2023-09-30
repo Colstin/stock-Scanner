@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct LoginView: View {
-    @Environment(\.dismiss) var dismiss
     @StateObject var viewModel = LoginViewModel()
     private let emailPlaceholder = "Email"
     private let passwordPlaceholder = "Password"
     private let forgotPassword = "Forgot Password?"
     private let login = "Login"
-    
+    private let backButtonName = "xmark"
+
     var body: some View {
         ZStack {
             Color("landingpage")
@@ -58,15 +58,8 @@ struct LoginView: View {
                         .modifier(SolidButtonModifier(paddingValue: 130, cornerValue: 30))
                 }
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Image(systemName: "xmark")
-                        .imageScale(.large)
-                        .onTapGesture {
-                            dismiss()
-                        }
-                }
-            }
+            .modifier(BackButtonModifier(buttonImage: backButtonName))
+ 
         }
         .ignoresSafeArea()
         .modifier(OrientationLockModifier(lockOrientation: .portrait))

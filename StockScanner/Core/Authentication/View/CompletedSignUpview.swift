@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct CompletedSignUpview: View {
-    @Environment(\.dismiss) var dismiss
     @EnvironmentObject var viewModel: RegistrationViewModel
     
     private let welcomeMessage = "Welcom to Stock Scanner"
     private let clickBelowMessage = "Click below to start Finding Stocks!"
+    private let backButtonName = "chevron.left"
     
     var body: some View {
         let username = "@Username"//viewModel.username
@@ -43,15 +43,7 @@ struct CompletedSignUpview: View {
                         .modifier(SolidButtonModifier(paddingValue: 120, cornerValue: 30))
                 }
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Image(systemName: "chevron.left")
-                        .imageScale(.large)
-                        .onTapGesture {
-                            dismiss()
-                        }
-                }
-            }
+            .modifier(BackButtonModifier(buttonImage: backButtonName))
         }
         .ignoresSafeArea()
         .modifier(OrientationLockModifier(lockOrientation: .portrait))

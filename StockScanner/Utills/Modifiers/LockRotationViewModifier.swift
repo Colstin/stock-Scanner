@@ -4,7 +4,7 @@
 //
 //  Created by Colstin Donaldson on 9/29/23.
 //
-
+// we will  try and implement something like this on the screen window, not 100% sure yet 
 import SwiftUI
 
 struct LockRotationViewModifier<Content: View>: View {

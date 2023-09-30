@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct LandingPage: View {
-    @Environment(\.isPresented) var presentationMode
     private let welcome = "Welcome to"
     private let companyName = "Stock Scanner"
     private let signUp = "Sign up"
@@ -37,7 +36,7 @@ struct LandingPage: View {
                     
                     Spacer()
                     
-                    //MARK: Sign up/ Log in
+                    //MARK: Sign up
                     VStack {
                         NavigationLink {
                             AddEmailView()
@@ -46,7 +45,8 @@ struct LandingPage: View {
                             Text(signUp)
                                 .modifier(SolidButtonModifier(paddingValue: 84, cornerValue: 10))
                         }
-                        
+                    
+                   //MARK: Log in
                         NavigationLink {
                             LoginView()
                                 .navigationBarBackButtonHidden()

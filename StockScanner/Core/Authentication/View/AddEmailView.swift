@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct AddEmailView: View {
-    @Environment(\.dismiss) var dismiss
     @EnvironmentObject var viewModel: RegistrationViewModel
  
     private let title = "What's your email address?"
     private let subtitle = "You'll use this email to log in next time."
     private let placeholder = "Email Address"
+    private let backButtonName = "xmark"
     
     var body: some View {
         ZStack {
@@ -34,15 +34,7 @@ struct AddEmailView: View {
                        
                 }
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Image(systemName: "xmark")
-                        .imageScale(.large)
-                        .onTapGesture {
-                            dismiss()
-                        }
-                }
-            }
+            .modifier(BackButtonModifier(buttonImage: backButtonName))
         }
         .ignoresSafeArea()
         .modifier(OrientationLockModifier(lockOrientation: .portrait))
