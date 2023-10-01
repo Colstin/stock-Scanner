@@ -35,11 +35,11 @@
 		D603879C2AC8A5B60003C201 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D603879B2AC8A5B60003C201 /* FirebaseRemoteConfigSwift */; };
 		D603879E2AC8A5B60003C201 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D603879D2AC8A5B60003C201 /* FirebaseStorage */; };
 		D60387A02AC8A5B60003C201 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = D603879F2AC8A5B60003C201 /* FirebaseStorageCombine-Community */; };
-		D60387A52AC8AB610003C201 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60387A42AC8AB610003C201 /* AuthService.swift */; };
 		D60387A72AC8B84C0003C201 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60387A62AC8B84C0003C201 /* ContentViewModel.swift */; };
-		D60387A92AC9E81B0003C201 /* loginStandardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60387A82AC9E81B0003C201 /* loginStandardView.swift */; };
+		D60387A92AC9E81B0003C201 /* LandingPageStandardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60387A82AC9E81B0003C201 /* LandingPageStandardView.swift */; };
 		D60387AB2AC9E83F0003C201 /* RegistrationStandardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60387AA2AC9E83F0003C201 /* RegistrationStandardView.swift */; };
 		D60387AD2AC9E8F60003C201 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60387AC2AC9E8F60003C201 /* AuthViewModel.swift */; };
+		D60387AF2AC9FB060003C201 /* LoginStandardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60387AE2AC9FB060003C201 /* LoginStandardView.swift */; };
 		D620905D2AA521B9004F9E92 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620905C2AA521B9004F9E92 /* Stock.swift */; };
 		D62090602AA52311004F9E92 /* StockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620905F2AA52311004F9E92 /* StockError.swift */; };
 		D62090622AA52EA5004F9E92 /* StockQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62090612AA52EA5004F9E92 /* StockQuote.swift */; };
@@ -85,11 +85,11 @@
 
 /* Begin PBXFileReference section */
 		D60387682AC8A3CD0003C201 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D60387A42AC8AB610003C201 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D60387A62AC8B84C0003C201 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
-		D60387A82AC9E81B0003C201 /* loginStandardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginStandardView.swift; sourceTree = "<group>"; };
+		D60387A82AC9E81B0003C201 /* LandingPageStandardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageStandardView.swift; sourceTree = "<group>"; };
 		D60387AA2AC9E83F0003C201 /* RegistrationStandardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationStandardView.swift; sourceTree = "<group>"; };
 		D60387AC2AC9E8F60003C201 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		D60387AE2AC9FB060003C201 /* LoginStandardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStandardView.swift; sourceTree = "<group>"; };
 		D620905C2AA521B9004F9E92 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		D620905F2AA52311004F9E92 /* StockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockError.swift; sourceTree = "<group>"; };
 		D62090612AA52EA5004F9E92 /* StockQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockQuote.swift; sourceTree = "<group>"; };
@@ -173,12 +173,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D60387A32AC8AB270003C201 /* FireBaseServices */ = {
+		D60387B02AC9FB0F0003C201 /* AuthViewTesting */ = {
 			isa = PBXGroup;
 			children = (
-				D60387A42AC8AB610003C201 /* AuthService.swift */,
+				D6F825422AC4B1120099A647 /* LandingPage.swift */,
+				D6F8254E2AC4BCEE0099A647 /* LoginView.swift */,
+				D6F825462AC4BA7A0099A647 /* AddEmailView.swift */,
+				D6F825482AC4BA870099A647 /* CreateUsernameView.swift */,
+				D6F8254A2AC4BA930099A647 /* CreatePasswordView.swift */,
+				D6F8254C2AC4BAB30099A647 /* CompletedSignUpview.swift */,
 			);
-			path = FireBaseServices;
+			path = AuthViewTesting;
 			sourceTree = "<group>";
 		};
 		D620905E2AA522F9004F9E92 /* ErrorHandling */ = {
@@ -323,7 +328,6 @@
 			children = (
 				D67FAE8B2A841AB900BE9BAC /* View */,
 				D67FAE8A2A841AB100BE9BAC /* ViewModel */,
-				D60387A32AC8AB270003C201 /* FireBaseServices */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -352,14 +356,10 @@
 		D67FAE8B2A841AB900BE9BAC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D60387A82AC9E81B0003C201 /* loginStandardView.swift */,
+				D60387B02AC9FB0F0003C201 /* AuthViewTesting */,
+				D60387A82AC9E81B0003C201 /* LandingPageStandardView.swift */,
 				D60387AA2AC9E83F0003C201 /* RegistrationStandardView.swift */,
-				D6F825422AC4B1120099A647 /* LandingPage.swift */,
-				D6F8254E2AC4BCEE0099A647 /* LoginView.swift */,
-				D6F825462AC4BA7A0099A647 /* AddEmailView.swift */,
-				D6F825482AC4BA870099A647 /* CreateUsernameView.swift */,
-				D6F8254A2AC4BA930099A647 /* CreatePasswordView.swift */,
-				D6F8254C2AC4BAB30099A647 /* CompletedSignUpview.swift */,
+				D60387AE2AC9FB060003C201 /* LoginStandardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -584,10 +584,9 @@
 				D67FAEA82A858DB400BE9BAC /* StockColumnBodyView.swift in Sources */,
 				D6F825572AC4EE200099A647 /* ButtonModifiers.swift in Sources */,
 				D67FAEAD2A8C0E2400BE9BAC /* LegalNoticeView.swift in Sources */,
-				D60387A92AC9E81B0003C201 /* loginStandardView.swift in Sources */,
+				D60387A92AC9E81B0003C201 /* LandingPageStandardView.swift in Sources */,
 				D69725632AABBF1500C4A0FC /* StockListView.swift in Sources */,
 				D67FAE982A841C9000BE9BAC /* ScanView.swift in Sources */,
-				D60387A52AC8AB610003C201 /* AuthService.swift in Sources */,
 				D6F8254D2AC4BAB30099A647 /* CompletedSignUpview.swift in Sources */,
 				D67FAECE2A92B99900BE9BAC /* ScanViewModel.swift in Sources */,
 				D67FAE9E2A8421D400BE9BAC /* User.swift in Sources */,
@@ -618,6 +617,7 @@
 				D6F825392ABF77190099A647 /* TapeWebView.swift in Sources */,
 				D69252FD2AA7DACA006EA15F /* StockPrice.swift in Sources */,
 				D6F825172ABE2CD80099A647 /* CombinedStockData.swift in Sources */,
+				D60387AF2AC9FB060003C201 /* LoginStandardView.swift in Sources */,
 				D6A5A6B22AC75C9300C0E754 /* OrientationLockModifier.swift in Sources */,
 				D60387AD2AC9E8F60003C201 /* AuthViewModel.swift in Sources */,
 				D6F8254F2AC4BCEE0099A647 /* LoginView.swift in Sources */,

@@ -10,6 +10,8 @@ import WebKit
 
 struct ProfileView: View {
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var viewModel: AuthViewModel
+    
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
@@ -61,7 +63,7 @@ struct ProfileView: View {
                     
                     // MARK: Log out
                     Button {
-                        print("Log Out")
+                        viewModel.signOut()
                     } label: {
                         Text("Log out")
                             .modifier(OverlayButtonModifier(cornerValue: 30))

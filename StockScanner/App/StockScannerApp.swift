@@ -12,12 +12,12 @@ import FirebaseCore
 struct StockScannerApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @StateObject var registrationViewModel = RegistrationViewModel()
+    @StateObject var viewModel = AuthViewModel()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(registrationViewModel)
+                .environmentObject(viewModel)
         }
     }
 }

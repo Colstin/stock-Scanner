@@ -1,5 +1,5 @@
 //
-//  RegistrationStandardView.swift
+//  LoginStandardView.swift
 //  StockScanner
 //
 //  Created by Colstin Donaldson on 10/1/23.
@@ -7,17 +7,15 @@
 
 import SwiftUI
 
-struct RegistrationStandardView: View {
+struct LoginStandardView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @State private var email = ""
-    @State private var username = ""
     @State private var password = ""
     
     private let emailPlaceholder = "Email"
-    private let usernamePlaceholder = "Username"
     private let passwordPlaceholder = "Password"
     private let forgotPassword = "Forgot Password?"
-    private let login = "SIGN UP"
+    private let login = "Login"
     private let backButtonName = "xmark"
     
     var body: some View {
@@ -34,26 +32,32 @@ struct RegistrationStandardView: View {
                                     placeholder: emailPlaceholder,
                                     text: $email,
                                     isSecureField: false)
-                    
-                    AuthInputView(title: nil,
-                                    subtitle: nil,
-                                    placeholder: usernamePlaceholder,
-                                    text: $username,
-                                    isSecureField: false)
-                    
                     AuthInputView(title: nil,
                                     subtitle: nil,
                                     placeholder: passwordPlaceholder,
                                     text: $password,
                                     isSecureField: true)
+                    
+                    // Forgot Password
+                    Button {
+                        print("show forgot password")
+                    } label: {
+                        Text(forgotPassword)
+                            .font(.footnote)
+                            .fontWeight(.semibold)
+                            .padding(.top)
+                            .padding(.trailing, 28)
+                            
+                    }
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+
                 }
                 
-                // Sign up Button
+                // Login Button
                 Button {
                     Task {
-                        try await viewModel.createUser(withEmail:email, 
-                                                       password: password,
-                                                       username: username)
+                        try await viewModel.signIn(withEmail: email,
+                                                   password: password)
                     }
                 } label: {
                     Text(login)
@@ -69,5 +73,5 @@ struct RegistrationStandardView: View {
 }
 
 #Preview {
-    RegistrationStandardView()
+    LoginStandardView()
 }
