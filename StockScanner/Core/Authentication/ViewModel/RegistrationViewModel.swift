@@ -11,4 +11,6 @@ class RegistrationViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
     @Published var username = ""
+    
+    
 }

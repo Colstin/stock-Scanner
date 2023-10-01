@@ -24,15 +24,15 @@ struct TextFieldModifier: ViewModifier {
             .tint(Color("blackwhite"))
         
             // goal is to make this navigate the screens
-            .focused($isInputActive)
-            .toolbar {
-                 ToolbarItem(placement: .keyboard) {
-                    // Spacer()
-                     Button("Continue") {
-                         isInputActive = false
-                     }
-                 }
-             }
+            //.focused($isInputActive)
+//            .toolbar {
+//                 ToolbarItem(placement: .keyboard) {
+//                    // Spacer()
+//                     Button("Continue") {
+//                         isInputActive = false
+//                     }
+//                 }
+//             }
     }
 }
 

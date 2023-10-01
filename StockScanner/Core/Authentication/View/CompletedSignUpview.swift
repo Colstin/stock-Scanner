@@ -36,8 +36,8 @@ struct CompletedSignUpview: View {
                        
                 }
 
-                NavigationLink {
-                    
+                Button {
+                   
                 } label: {
                     Text("Complete")
                         .modifier(SolidButtonModifier(paddingValue: 120, cornerValue: 30))
