@@ -9,17 +9,19 @@ import SwiftUI
 
 struct RegistrationStandardView: View {
     @EnvironmentObject var viewModel: AuthViewModel
-    @State private var email = ""
-    @State private var username = ""
-    @State private var password = ""
+    @State var email = ""
+    @State var username = ""
+    @State var password = ""
+    @State var confirmPassword = ""
+    @State var passwordsMatch = false
     
     private let emailPlaceholder = "Email"
     private let usernamePlaceholder = "Username"
     private let passwordPlaceholder = "Password"
-    private let forgotPassword = "Forgot Password?"
+    private let confirmPasswordPlaceholder = "Confirm Password"
     private let login = "SIGN UP"
     private let backButtonName = "xmark"
-    
+
     var body: some View {
         ZStack {
             Color("landingpage")
@@ -29,24 +31,47 @@ struct RegistrationStandardView: View {
                 Image(systemName: "chart.xyaxis.line")
 
                 VStack {
+                  
                     AuthInputView(title: nil,
-                                    subtitle: nil,
-                                    placeholder: emailPlaceholder,
-                                    text: $email,
-                                    isSecureField: false)
+                                  subtitle: nil,
+                                  placeholder: emailPlaceholder,
+                                  placeHolderImage: "envelope.fill",
+                                  text: $email,
+                                  isSecureField: false)
                     
                     AuthInputView(title: nil,
-                                    subtitle: nil,
-                                    placeholder: usernamePlaceholder,
-                                    text: $username,
-                                    isSecureField: false)
+                                  subtitle: nil,
+                                  placeholder: usernamePlaceholder, 
+                                  placeHolderImage: "person.fill",
+                                  text: $username,
+                                  isSecureField: false)
                     
                     AuthInputView(title: nil,
-                                    subtitle: nil,
-                                    placeholder: passwordPlaceholder,
-                                    text: $password,
-                                    isSecureField: true)
+                                  subtitle: nil,
+                                  placeholder: passwordPlaceholder, 
+                                  placeHolderImage: "lock.fill",
+                                  text: $password,
+                                  isSecureField: true)
+                    
+                   
+                    AuthInputView(title: nil,
+                                  subtitle: nil,
+                                  placeholder: confirmPasswordPlaceholder,
+                                  placeHolderImage: passwordsMatch ? "checkmark.circle.fill" : "lock.fill",
+                                  text: $confirmPassword,
+                                  isSecureField: true)
+                    .foregroundStyle(passwordsMatch ? Color.green : Color("blackwhite"))
+                    
                 }
+
+                .onChange(of: confirmPassword) {
+                    if password == confirmPassword && !password.isEmpty {
+                        passwordsMatch = true
+                    } else {
+                        passwordsMatch = false
+                    }
+                }
+             
                 
                 // Sign up Button
                 Button {
@@ -57,11 +82,12 @@ struct RegistrationStandardView: View {
                     }
                 } label: {
                     Text(login)
-                        .modifier(SolidButtonModifier(paddingValue: 130, cornerValue: 30))
+                        .modifier(SolidButtonModifier(paddingValue: 125, cornerValue: 30))
                 }
+                .disabled(!formIsValid)//I put function in extensions file
+                .opacity(formIsValid ? 1.0 : 0.5)
             }
             .modifier(BackButtonModifier(buttonImage: backButtonName))
- 
         }
         .ignoresSafeArea()
         .modifier(OrientationLockModifier(lockOrientation: .portrait))

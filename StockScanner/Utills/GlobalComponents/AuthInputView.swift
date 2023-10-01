@@ -11,8 +11,10 @@ struct AuthInputView: View {
     let title: String?
     let subtitle: String?
     let placeholder: String
+    let placeHolderImage: String
     @Binding var text: String
     var isSecureField = false
+   
 
     var body: some View {
         VStack(spacing: 80) {
@@ -31,22 +33,29 @@ struct AuthInputView: View {
             }
             
             if isSecureField {
-                SecureField(placeholder, text: $text)
-                    .autocorrectionDisabled(true)
-                    .modifier(TextFieldModifier(text: $text))
-                    .padding(.top)
+                HStack {
+                    Image(systemName: placeHolderImage)
+                    SecureField(placeholder, text: $text)
+                }
+                .autocorrectionDisabled(true)
+                .modifier(TextFieldModifier(text: $text))
+                .padding(.top)
+              
             } else {
-                TextField(placeholder, text: $text)
-                    .textInputAutocapitalization(.none)
-                    .autocorrectionDisabled(true)
-                    .modifier(TextFieldModifier(text: $text))
-                    .padding(.top)
-                    
+                HStack {
+                    Image(systemName: placeHolderImage)
+                    TextField(placeholder, text: $text)
+                }
+                .textInputAutocapitalization(.none)
+                .autocorrectionDisabled(true)
+                .modifier(TextFieldModifier(text: $text))
+                .padding(.top)
+                
             }
         }
     }
 }
 
 #Preview {
-    AuthInputView(title: "Title", subtitle: "Subtitle", placeholder: "Placeholder", text: .constant(""))
+    AuthInputView(title: "Title", subtitle: "Subtitle", placeholder: "Placeholder", placeHolderImage: "envelope.fill", text: .constant(""))
 }

@@ -24,16 +24,16 @@ struct LoginView: View {
                 Image(systemName: "chart.xyaxis.line")
 
                 VStack {
-                    AuthInputView(title: nil,
-                                    subtitle: nil,
-                                    placeholder: emailPlaceholder,
-                                    text: $viewModel.email,
-                                    isSecureField: false)
-                    AuthInputView(title: nil,
-                                    subtitle: nil,
-                                    placeholder: passwordPlaceholder,
-                                    text: $viewModel.password,
-                                    isSecureField: true)
+//                    AuthInputView(title: nil,
+//                                    subtitle: nil,
+//                                    placeholder: emailPlaceholder,
+//                                    text: $viewModel.email,
+//                                    isSecureField: false)
+//                    AuthInputView(title: nil,
+//                                    subtitle: nil,
+//                                    placeholder: passwordPlaceholder,
+//                                    text: $viewModel.password,
+//                                    isSecureField: true)
                     
                     // Forgot Password
                     Button {

@@ -15,7 +15,7 @@ struct LoginStandardView: View {
     private let emailPlaceholder = "Email"
     private let passwordPlaceholder = "Password"
     private let forgotPassword = "Forgot Password?"
-    private let login = "Login"
+    private let login = "LOGIN"
     private let backButtonName = "xmark"
     
     var body: some View {
@@ -28,15 +28,17 @@ struct LoginStandardView: View {
 
                 VStack {
                     AuthInputView(title: nil,
-                                    subtitle: nil,
-                                    placeholder: emailPlaceholder,
-                                    text: $email,
-                                    isSecureField: false)
+                                  subtitle: nil,
+                                  placeholder: emailPlaceholder,
+                                  placeHolderImage: "envelope.fill",
+                                  text: $email,
+                                  isSecureField: false)
                     AuthInputView(title: nil,
-                                    subtitle: nil,
-                                    placeholder: passwordPlaceholder,
-                                    text: $password,
-                                    isSecureField: true)
+                                  subtitle: nil,
+                                  placeholder: passwordPlaceholder,
+                                  placeHolderImage: "lock.fill",
+                                  text: $password,
+                                  isSecureField: true)
                     
                     // Forgot Password
                     Button {
@@ -63,6 +65,8 @@ struct LoginStandardView: View {
                     Text(login)
                         .modifier(SolidButtonModifier(paddingValue: 130, cornerValue: 30))
                 }
+                .disabled(email.isEmpty || password.isEmpty)
+                .opacity(email.isEmpty || password.isEmpty ? 0.5 : 1.0)
             }
             .modifier(BackButtonModifier(buttonImage: backButtonName))
  

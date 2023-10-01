@@ -10,14 +10,15 @@ import SwiftUI
 struct TextFieldModifier: ViewModifier {
      @FocusState private var isInputActive: Bool
      @Binding var text: String
+     let strokeColor = Color("blackwhite")// I wnat to make this dynamic somehow
     
     func body(content: Content) -> some View {
         content
-            .multilineTextAlignment(.center)
+            .multilineTextAlignment(.leading)
             .padding(12)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color("blackwhite"), lineWidth: 3)
+                    .stroke(Color(strokeColor), lineWidth: 3)
             )
             .cornerRadius(10)
             .padding(.horizontal, 24)

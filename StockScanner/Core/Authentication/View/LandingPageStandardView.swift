@@ -34,9 +34,7 @@ struct LandingPageStandardView: View {
                     }
                     
                     Spacer()
-                    
-                    
-                    
+
                     //MARK: Sign up
                     VStack {
                         NavigationLink {

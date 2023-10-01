@@ -19,11 +19,11 @@ struct AddEmailView: View {
         ZStack {
             Color("landingpage")
             VStack(spacing: 30){
-                AuthInputView(title: title,
-                                subtitle: subtitle,
-                                placeholder: placeholder,
-                                text: $viewModel.email,
-                                isSecureField: false)
+//                AuthInputView(title: title,
+//                                subtitle: subtitle,
+//                                placeholder: placeholder,
+//                                text: $viewModel.email,
+//                                isSecureField: false)
                 
                 NavigationLink {
                     CreateUsernameView()
