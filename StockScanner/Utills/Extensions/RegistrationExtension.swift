@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension RegistrationStandardView: AuthenticationFormProtocol {
+extension RegistrationView: AuthenticationFormProtocol {
     var formIsValid: Bool {
         return isValidEmail(email)
         && isStrongPassword(password)

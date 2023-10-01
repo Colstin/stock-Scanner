@@ -1,5 +1,5 @@
 //
-//  loginStandardView.swift
+//  LandingPage.swift
 //  StockScanner
 //
 //  Created by Colstin Donaldson on 10/1/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LandingPageStandardView: View {
+struct LandingPage: View {
     
     private let welcome = "Welcome to"
     private let companyName = "Stock Scanner"
@@ -38,7 +38,7 @@ struct LandingPageStandardView: View {
                     //MARK: Sign up
                     VStack {
                         NavigationLink {
-                            RegistrationStandardView()
+                            RegistrationView()
                                 .navigationBarBackButtonHidden()
                         } label: {
                             Text(signUp)
@@ -47,7 +47,7 @@ struct LandingPageStandardView: View {
                         
                     //MARK: Log in
                          NavigationLink {
-                             LoginStandardView()
+                             LoginView()
                                  .navigationBarBackButtonHidden()
                          } label: {
                              Text(logIn)
@@ -65,5 +65,5 @@ struct LandingPageStandardView: View {
 }
 
 #Preview {
-    LandingPageStandardView()
+    LandingPage()
 }

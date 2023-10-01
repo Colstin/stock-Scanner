@@ -15,7 +15,8 @@ struct ContentView: View {
             if viewModel.userSession != nil {
                 MainTabView()
             } else {
-                LandingPageStandardView()
+                LandingPage()
+               
             }
         }
     }

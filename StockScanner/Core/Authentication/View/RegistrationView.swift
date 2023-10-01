@@ -1,5 +1,5 @@
 //
-//  RegistrationStandardView.swift
+//  RegistrationView.swift
 //  StockScanner
 //
 //  Created by Colstin Donaldson on 10/1/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RegistrationStandardView: View {
+struct RegistrationView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @State var email = ""
     @State var username = ""
@@ -95,5 +95,5 @@ struct RegistrationStandardView: View {
 }
 
 #Preview {
-    RegistrationStandardView()
+    RegistrationView()
 }

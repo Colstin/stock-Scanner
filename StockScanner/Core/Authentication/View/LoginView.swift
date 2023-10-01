@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoginStandardView: View {
+struct LoginView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @State private var email = ""
     @State private var password = ""
@@ -77,5 +77,5 @@ struct LoginStandardView: View {
 }
 
 #Preview {
-    LoginStandardView()
+    LoginView()
 }
