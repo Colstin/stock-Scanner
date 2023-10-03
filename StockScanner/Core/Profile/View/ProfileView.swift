@@ -11,6 +11,8 @@ import WebKit
 struct ProfileView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var viewModel: AuthViewModel
+    @State private var logOutConfirmation = false
+    @State private var deleteConfirmation = false
     
     var body: some View {
         NavigationStack {
@@ -61,21 +63,35 @@ struct ProfileView: View {
                     Spacer()
                     Spacer()
                     
+                    
+                    
                     // MARK: Log out
                     Button {
-                        viewModel.signOut()
+                        logOutConfirmation = true
                     } label: {
                         Text("Log out")
                             .modifier(OverlayButtonModifier(cornerValue: 30))
                     }
+                    .alert("Are you sure?", isPresented: $logOutConfirmation) {
+                        Button("Log Out", role: .destructive) {
+                            viewModel.signOut()
+                        }
+                    }
+                 
                     
                     // MARK: Delete
                     Button {
-                        print("Delete account")
+                        deleteConfirmation = true
                     } label: {
                         Text("Delete Account")
                             .foregroundStyle(.red )   
                     }
+                    .alert("Are you sure?", isPresented: $deleteConfirmation, actions: {
+                        Button("Delete", role: .destructive, action: {  })
+                    }, message: {
+                        Text("Note: This will permanently delete your account")
+                    })
+                    
                 }
             }
             .toolbar {
