@@ -41,11 +41,14 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 /*
  MARK: Summary
  1. Dont go below 30 for the prefix its a weird glitch, it'll mess up background
+ 2. uncomment Init() to see data we
  
  TODO: Complete these
- 0. uncomment Init() to see data we
- 1. get database functionality set up
- 2 
+ 0.
+ 1. Display Change %
+ 2  Display Float
+ 3. For Reg and login get authentication UI finished
+ 4. Custom Coloring for scan columns
  
  */
 

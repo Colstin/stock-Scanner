@@ -22,7 +22,7 @@ extension RegistrationView: AuthenticationFormProtocol {
    }
     
     private func isStrongPassword(_ password: String) -> Bool {
-        guard !password.isEmpty, password.count >= 8 else { return false }
+        guard !password.isEmpty, password.count >= 8 && password.count <= 30 else { return false }
         
         let specialCharacters = CharacterSet(charactersIn: "!?#%@")
         let numericCharacters = CharacterSet.decimalDigits
@@ -37,3 +37,5 @@ extension RegistrationView: AuthenticationFormProtocol {
         return password == conformPassword
     }
 }
+
+//Idea is to also create individual stuff so we can implement these onto each imput for email, pass etc.. 

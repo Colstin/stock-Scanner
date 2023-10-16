@@ -73,7 +73,7 @@ struct ProfileView: View {
                             .modifier(OverlayButtonModifier(cornerValue: 30))
                     }
                     .alert("Are you sure?", isPresented: $logOutConfirmation) {
-                        Button("Log Out", role: .destructive) {
+                        Button("Log out", role: .destructive) {
                             viewModel.signOut()
                         }
                     }
@@ -87,7 +87,11 @@ struct ProfileView: View {
                             .foregroundStyle(.red )   
                     }
                     .alert("Are you sure?", isPresented: $deleteConfirmation, actions: {
-                        Button("Delete", role: .destructive, action: {  })
+                        Button("Delete", role: .destructive){
+                            Task {
+                                try await viewModel.deleteAccount()
+                            }
+                        }
                     }, message: {
                         Text("Note: This will permanently delete your account")
                     })

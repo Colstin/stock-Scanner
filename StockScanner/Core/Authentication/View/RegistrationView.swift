@@ -18,6 +18,11 @@ struct RegistrationView: View {
     private let emailPlaceholder = "Email"
     private let usernamePlaceholder = "Username"
     private let passwordPlaceholder = "Password"
+    private let passwordHelper = """
+                                • 6-30 Characters (case-sensitive)
+                                • At least 1 Uppercase
+                                • At least 1 special char [!?#%@]
+                                """
     private let confirmPasswordPlaceholder = "Confirm Password"
     private let login = "SIGN UP"
     private let backButtonName = "xmark"
@@ -52,7 +57,10 @@ struct RegistrationView: View {
                                   placeHolderImage: "lock.fill",
                                   text: $password,
                                   isSecureField: true)
-                    
+                   Text(passwordHelper)
+                        .font(.footnote)
+                        .padding(.horizontal)
+                        .bold()
                    
                     AuthInputView(title: nil,
                                   subtitle: nil,
