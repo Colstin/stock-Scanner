@@ -35,8 +35,26 @@ struct StockListView: View {
                              */
                         } else {
                            
-                            ForEach(viewModel.stockScreener, id: \.symbol) { stock in
-                               StockColumnBodyView(stockScreener: stock)
+//                            ForEach(viewModel.stockScreener, id: \.symbol) { stock in
+//                               StockColumnBodyView(stockScreener: stock)
+//                            }
+                            
+                            ForEach(viewModel.stockScreener.map { $0.symbol }, id: \.self) { symbol in
+                                if let fullStockData = viewModel.fullStockData[symbol] {
+                                    Group {
+                                        Text("\(fullStockData.symbol)")
+                                        Text("\(fullStockData.formattedPrice)")
+                                        Text("\(fullStockData.formattedChangesPercentage)")
+                                        Text("0.00M")
+                                            .padding(10)
+                                            .background(Color(.systemGreen))
+                                            .cornerRadius(10)
+                                        Text("\(fullStockData.formattedVolume)")
+                                            .padding(10)
+                                            .background(Color(.systemBlue))
+                                            .cornerRadius(10)
+                                    }
+                                }
                             }
                             
                         }

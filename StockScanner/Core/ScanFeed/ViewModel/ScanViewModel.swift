@@ -10,19 +10,22 @@ import Foundation
 @MainActor
 class ScanViewModel: ObservableObject {
     // @Published var errorMessage: String? //use this later to add error message to UI
-    @Published var stock: [MostWatched] = []
-    @Published var quotes: [String: StockQuote] = [:]
     @Published var stockScreener: [StockScreener] = []
+    @Published var additionalQuotesData = [AdditionalQuotesData]()
+    @Published var fullStockData = [String: FullStockData]()   //symbol is the key and the FullStockData is the value.
+    
     
     init (){
-       //fetchStock()
+       fetchStock()
     }
     
    
     func fetchStock() {
         Task {
             do {
-                self.stockScreener = try await getScreenerStocks()
+                self.stockScreener = try await getScreenerStocks().sorted(by: { $0.volume > $1.volume })
+                let symbols = stockScreener.map { $0.symbol }
+                try await fetchAdditionalData(for: symbols)
                 
             } catch StockError.invalidURL{
                 print("Error: \(StockError.invalidURL.localizedDescription)")
@@ -60,7 +63,7 @@ class ScanViewModel: ObservableObject {
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { throw StockError.invalidResponse }
         
         do {
-            let result = try JSONDecoder().decode([StockScreener].self, from: data).sorted(by: { $0.volume > $1.volume })
+            let result = try JSONDecoder().decode([StockScreener].self, from: data)
             return result
         } catch {
             throw StockError.invalidData
@@ -68,66 +71,60 @@ class ScanViewModel: ObservableObject {
     }
     
     
-    
-  
-    func getStock() async throws -> [MostWatched]  {
-        let headers = [
-            "X-RapidAPI-Key": "8961206d8cmsh9d61f46c89a5b1bp175481jsnc56c24646245",
-            "X-RapidAPI-Host": "yahoo-finance15.p.rapidapi.com"
-        ]
-        
-        let stockURL = "https://yahoo-finance15.p.rapidapi.com/api/yahoo/tr/trending"
-        guard let encodedURL = stockURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: encodedURL) else {
-            throw StockError.invalidURL
-        }
-        var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        request.httpMethod = "GET"
-        request.allHTTPHeaderFields = headers
-        
-        let (data, response) = try await URLSession.shared.data(for: request)
-        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { throw StockError.invalidResponse }
-
+    func fetchAdditionalData(for symbols: [String]) async throws {
         do {
-            let result = try JSONDecoder().decode([MostWatched].self, from: data)
-            return result
+           if let batchRequestURL = constructBatchRequestURL(symbols: symbols) {
+               let (batchData, batchResponse) = try await URLSession.shared.data(for: batchRequestURL)
+               guard let batchResponse = batchResponse as? HTTPURLResponse, batchResponse.statusCode == 200 else { throw StockError.invalidResponse }
+            
+               let additionalQuotesData = try JSONDecoder().decode([AdditionalQuotesData].self, from: batchData)
+               
+               updateQuotes(with: additionalQuotesData)
+               
+            } else {
+                print("Failed to construct the batch request")
+            }
+            
         } catch {
-            throw StockError.invalidData
+            print("Error: \(error.localizedDescription)")
         }
     }
+    
+    func constructBatchRequestURL(symbols: [String]) -> URLRequest? {
+        let symbolList = symbols.joined(separator: ",")
+        let urlString = "https://financialmodelingprep.com/api/v3/quote/\(symbolList)?apikey=\(APIConfig.apiKeyFM)"
+        
+        guard let batchRequestURL = URL(string: urlString) else {
+            print("Error: Invalid batch request URL")
+            return nil
+        }
+        
+        var request = URLRequest(url: batchRequestURL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = APIConfig.headers
+        
+        return request
+    }
 
-    func getStockQuotes(symbols: [String]) async throws -> [String: StockQuote] {
-        var quotesDictionary = [String: StockQuote]()
+
+    func updateQuotes(with additionalQuoteData: [AdditionalQuotesData]) {
         
-        let headers = [
-            "X-RapidAPI-Key": "8961206d8cmsh9d61f46c89a5b1bp175481jsnc56c24646245",
-            "X-RapidAPI-Host": "realstonks.p.rapidapi.com"
-        ]
-        
-        for symbol in symbols {
-            let baseURL = "https://realstonks.p.rapidapi.com/"
-            let symbolURL = baseURL + symbol
-            
-            guard let url = URL(string: symbolURL) else { throw StockError.invalidURL }
-            
-            var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 60)
-            request.httpMethod = "GET"
-            request.allHTTPHeaderFields = headers
-            
-            let (data, response) = try await URLSession.shared.data(for: request)
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { throw StockError.invalidResponse }
-            
-            do {
-                let quote = try JSONDecoder().decode(StockQuote.self, from: data)
-                quotesDictionary[symbol] = quote
-                print("\(symbol)")
-                print("\(quote)")
-            } catch {
-                throw StockError.invalidData
+        for additionalQuote in additionalQuoteData {
+            if let stockScreener = stockScreener.first(where: { $0.symbol == additionalQuote.symbol }){
+                let updatedQuote = FullStockData (
+                    symbol: additionalQuote.symbol,
+                    companyName: stockScreener.companyName,
+                    price: stockScreener.price,
+                    volume: stockScreener.volume,
+                    changesPercentage: additionalQuote.changesPercentage,
+                    change: additionalQuote.change
+                )
+                
+                fullStockData[additionalQuote.symbol] = updatedQuote
             }
         }
-        return quotesDictionary
+        
     }
-
 }
 
 
