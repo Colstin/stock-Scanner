@@ -23,9 +23,10 @@ class ScanViewModel: ObservableObject {
     func fetchStock() {
         Task {
             do {
-                self.stockScreener = try await getScreenerStocks().sorted(by: { $0.volume > $1.volume })
+                self.stockScreener = try await getScreenerStocks()
                 let symbols = stockScreener.map { $0.symbol }
                 try await fetchAdditionalData(for: symbols)
+                
                 
             } catch StockError.invalidURL{
                 print("Error: \(StockError.invalidURL.localizedDescription)")
@@ -49,7 +50,7 @@ class ScanViewModel: ObservableObject {
             URLQueryItem(name: "isEtf", value: "false"),
             URLQueryItem(name: "Country", value: "US"),
             URLQueryItem(name: "exchange", value: "NASDAQ"),
-            URLQueryItem(name: "limit", value: "1000"),
+            URLQueryItem(name: "limit", value: "3000"),
             URLQueryItem(name: "apikey", value: APIConfig.apiKeyFM)
         ]
         
@@ -63,7 +64,7 @@ class ScanViewModel: ObservableObject {
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { throw StockError.invalidResponse }
         
         do {
-            let result = try JSONDecoder().decode([StockScreener].self, from: data)
+            let result = try JSONDecoder().decode([StockScreener].self, from: data).sorted(by: { $0.volume > $1.volume })
             return result
         } catch {
             throw StockError.invalidData
@@ -77,7 +78,7 @@ class ScanViewModel: ObservableObject {
                let (batchData, batchResponse) = try await URLSession.shared.data(for: batchRequestURL)
                guard let batchResponse = batchResponse as? HTTPURLResponse, batchResponse.statusCode == 200 else { throw StockError.invalidResponse }
             
-               let additionalQuotesData = try JSONDecoder().decode([AdditionalQuotesData].self, from: batchData)
+               let additionalQuotesData = try JSONDecoder().decode([AdditionalQuotesData].self, from: batchData).filter { $0.changesPercentage > 0 }
                
                updateQuotes(with: additionalQuotesData)
                
@@ -108,7 +109,6 @@ class ScanViewModel: ObservableObject {
 
 
     func updateQuotes(with additionalQuoteData: [AdditionalQuotesData]) {
-        
         for additionalQuote in additionalQuoteData {
             if let stockScreener = stockScreener.first(where: { $0.symbol == additionalQuote.symbol }){
                 let updatedQuote = FullStockData (

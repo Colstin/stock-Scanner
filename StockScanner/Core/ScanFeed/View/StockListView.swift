@@ -33,14 +33,9 @@ struct StockListView: View {
                                .padding(.bottom)
                            }
                              */
-                        } else {
-                           
-//                            ForEach(viewModel.stockScreener, id: \.symbol) { stock in
-//                               StockColumnBodyView(stockScreener: stock)
-//                            }
-                            
+                        } else {                            
                             ForEach(viewModel.stockScreener.map { $0.symbol }, id: \.self) { symbol in
-                                if let fullStockData = viewModel.fullStockData[symbol] {
+                                if let fullStockData = viewModel.fullStockData[symbol]{
                                     Group {
                                         Text("\(fullStockData.symbol)")
                                         Text("\(fullStockData.formattedPrice)")
