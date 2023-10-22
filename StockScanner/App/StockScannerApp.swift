@@ -45,7 +45,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
  
  TODO: Complete these
  0.
- 1. Display Change %
+ 1. Clean up code
  2  Display Float
  3. For Reg and login get authentication UI finished
  4. Custom Coloring for scan columns

@@ -12,7 +12,7 @@ class ScanViewModel: ObservableObject {
     // @Published var errorMessage: String? //use this later to add error message to UI
     @Published var stockScreener: [StockScreener] = []
     @Published var additionalQuotesData = [AdditionalQuotesData]()
-    @Published var fullStockData = [String: FullStockData]()   //symbol is the key and the FullStockData is the value.
+    @Published var fullStockData = [String: FullStockData]() //symbol is the key and the FullStockData is a combo of all API Data.
     
     
     init (){
@@ -27,7 +27,6 @@ class ScanViewModel: ObservableObject {
                 let symbols = stockScreener.map { $0.symbol }
                 try await fetchAdditionalData(for: symbols)
                 
-                
             } catch StockError.invalidURL{
                 print("Error: \(StockError.invalidURL.localizedDescription)")
             } catch StockError.invalidResponse{
@@ -41,7 +40,6 @@ class ScanViewModel: ObservableObject {
     }
     
     func getScreenerStocks() async throws -> [StockScreener] {
-    
         var endpointComponents = URLComponents(string: APIConfig.apiURLFM)
         endpointComponents?.queryItems = [
             URLQueryItem(name: "priceLowerThan", value: "25"),
@@ -73,32 +71,29 @@ class ScanViewModel: ObservableObject {
     
     
     func fetchAdditionalData(for symbols: [String]) async throws {
-        do {
-           if let batchRequestURL = constructBatchRequestURL(symbols: symbols) {
-               let (batchData, batchResponse) = try await URLSession.shared.data(for: batchRequestURL)
-               guard let batchResponse = batchResponse as? HTTPURLResponse, batchResponse.statusCode == 200 else { throw StockError.invalidResponse }
-            
-               let additionalQuotesData = try JSONDecoder().decode([AdditionalQuotesData].self, from: batchData).filter { $0.changesPercentage > 0 }
-               
-               updateQuotes(with: additionalQuotesData)
-               
-            } else {
-                print("Failed to construct the batch request")
+        if let batchRequestURL = try constructBatchRequestURL(symbols: symbols) {
+            let (batchData, batchResponse) = try await URLSession.shared.data(for: batchRequestURL)
+            guard let batchResponse = batchResponse as? HTTPURLResponse, batchResponse.statusCode == 200 else { throw StockError.invalidResponse }
+            do {
+                let additionalQuotesData = try JSONDecoder().decode([AdditionalQuotesData].self, from: batchData).filter { $0.changesPercentage > 0 }
+                
+                mergeAdditionalData(with: additionalQuotesData)
+             
+            } catch {
+                throw StockError.invalidData
             }
-            
-        } catch {
-            print("Error: \(error.localizedDescription)")
+
+        } else {
+           // where there is no matching additionalQuotesData
+            throw StockError.noMatchingData
         }
     }
     
-    func constructBatchRequestURL(symbols: [String]) -> URLRequest? {
+    func constructBatchRequestURL(symbols: [String]) throws -> URLRequest? {
         let symbolList = symbols.joined(separator: ",")
         let urlString = "https://financialmodelingprep.com/api/v3/quote/\(symbolList)?apikey=\(APIConfig.apiKeyFM)"
         
-        guard let batchRequestURL = URL(string: urlString) else {
-            print("Error: Invalid batch request URL")
-            return nil
-        }
+        guard let batchRequestURL = URL(string: urlString) else { throw StockError.invalidURL }
         
         var request = URLRequest(url: batchRequestURL, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         request.httpMethod = "GET"
@@ -107,8 +102,8 @@ class ScanViewModel: ObservableObject {
         return request
     }
 
-
-    func updateQuotes(with additionalQuoteData: [AdditionalQuotesData]) {
+// Updates the fullStockData dictionary with additional quote data
+    func mergeAdditionalData(with additionalQuoteData: [AdditionalQuotesData]) {
         for additionalQuote in additionalQuoteData {
             if let stockScreener = stockScreener.first(where: { $0.symbol == additionalQuote.symbol }){
                 let updatedQuote = FullStockData (
@@ -123,7 +118,6 @@ class ScanViewModel: ObservableObject {
                 fullStockData[additionalQuote.symbol] = updatedQuote
             }
         }
-        
     }
 }
 
