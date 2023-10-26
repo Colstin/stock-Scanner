@@ -16,7 +16,7 @@ class ScanViewModel: ObservableObject {
     
     
     init (){
-       fetchStock()
+      // fetchStock()
     }
     
    
@@ -71,21 +71,17 @@ class ScanViewModel: ObservableObject {
     
     
     func fetchAdditionalData(for symbols: [String]) async throws {
-        if let batchRequestURL = try constructBatchRequestURL(symbols: symbols) {
-            let (batchData, batchResponse) = try await URLSession.shared.data(for: batchRequestURL)
-            guard let batchResponse = batchResponse as? HTTPURLResponse, batchResponse.statusCode == 200 else { throw StockError.invalidResponse }
-            do {
-                let additionalQuotesData = try JSONDecoder().decode([AdditionalQuotesData].self, from: batchData).filter { $0.changesPercentage > 0 }
-                
-                mergeAdditionalData(with: additionalQuotesData)
-             
-            } catch {
-                throw StockError.invalidData
-            }
-
-        } else {
-           // where there is no matching additionalQuotesData
-            throw StockError.noMatchingData
+        guard let batchRequestURL = try constructBatchRequestURL(symbols: symbols) else { throw StockError.noMatchingData }
+        let (batchData, batchResponse) = try await URLSession.shared.data(for: batchRequestURL)
+        guard let batchResponse = batchResponse as? HTTPURLResponse, batchResponse.statusCode == 200 else { throw StockError.invalidResponse }
+        
+        do {
+            let additionalQuotesData = try JSONDecoder().decode([AdditionalQuotesData].self, from: batchData).filter { $0.changesPercentage > 0 }
+            
+            mergeAdditionalData(with: additionalQuotesData)
+            
+        } catch {
+            throw StockError.invalidData
         }
     }
     

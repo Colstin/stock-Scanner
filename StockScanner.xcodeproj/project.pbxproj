@@ -42,6 +42,7 @@
 		D60387AF2AC9FB060003C201 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60387AE2AC9FB060003C201 /* LoginView.swift */; };
 		D60387B32ACA22A70003C201 /* RegistrationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60387B22ACA22A70003C201 /* RegistrationExtension.swift */; };
 		D60387B62ACA23740003C201 /* CustomProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60387B52ACA23740003C201 /* CustomProtocols.swift */; };
+		D61F7B2A2AEAFC9D00CE909E /* ProfileEditSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61F7B292AEAFC9D00CE909E /* ProfileEditSheetView.swift */; };
 		D620905D2AA521B9004F9E92 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620905C2AA521B9004F9E92 /* Stock.swift */; };
 		D62090602AA52311004F9E92 /* StockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D620905F2AA52311004F9E92 /* StockError.swift */; };
 		D62090622AA52EA5004F9E92 /* StockQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62090612AA52EA5004F9E92 /* StockQuote.swift */; };
@@ -95,6 +96,7 @@
 		D60387AE2AC9FB060003C201 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D60387B22ACA22A70003C201 /* RegistrationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationExtension.swift; sourceTree = "<group>"; };
 		D60387B52ACA23740003C201 /* CustomProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProtocols.swift; sourceTree = "<group>"; };
+		D61F7B292AEAFC9D00CE909E /* ProfileEditSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditSheetView.swift; sourceTree = "<group>"; };
 		D620905C2AA521B9004F9E92 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		D620905F2AA52311004F9E92 /* StockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockError.swift; sourceTree = "<group>"; };
 		D62090612AA52EA5004F9E92 /* StockQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockQuote.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				D67FAE922A841B7E00BE9BAC /* ProfileView.swift */,
+				D61F7B292AEAFC9D00CE909E /* ProfileEditSheetView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -644,6 +647,7 @@
 				D63C40992A830E4200131604 /* StockScannerApp.swift in Sources */,
 				D60387AB2AC9E83F0003C201 /* RegistrationView.swift in Sources */,
 				D6AAFD032AAA718B00AF9676 /* APIConfig.swift in Sources */,
+				D61F7B2A2AEAFC9D00CE909E /* ProfileEditSheetView.swift in Sources */,
 				D6A5A6B02AC746AB00C0E754 /* LockRotationViewModifier.swift in Sources */,
 				D6F8253C2AC232F30099A647 /* StockScreener.swift in Sources */,
 				D67FAE9C2A841D6A00BE9BAC /* MainTabView.swift in Sources */,

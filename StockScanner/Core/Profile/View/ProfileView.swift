@@ -13,6 +13,7 @@ struct ProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @State private var logOutConfirmation = false
     @State private var deleteConfirmation = false
+    @State private var showingSheet = false
     
     var body: some View {
         NavigationStack {
@@ -56,52 +57,20 @@ struct ProfileView: View {
                             .foregroundColor(.gray)
                             .italic()
                     }
-                  
-                    // MARK: legal
-                    LegalNoticeView()
-                    
-                    Spacer()
-                    Spacer()
-                    
-                    
-                    
-                    // MARK: Log out
-                    Button {
-                        logOutConfirmation = true
-                    } label: {
-                        Text("Log out")
-                            .modifier(OverlayButtonModifier(cornerValue: 30))
-                    }
-                    .alert("Are you sure?", isPresented: $logOutConfirmation) {
-                        Button("Log out", role: .destructive) {
-                            viewModel.signOut()
-                        }
-                    }
-                 
-                    
-                    // MARK: Delete
-                    Button {
-                        deleteConfirmation = true
-                    } label: {
-                        Text("Delete Account")
-                            .foregroundStyle(.red )   
-                    }
-                    .alert("Are you sure?", isPresented: $deleteConfirmation, actions: {
-                        Button("Delete", role: .destructive){
-                            Task {
-                                try await viewModel.deleteAccount()
-                            }
-                        }
-                    }, message: {
-                        Text("Note: This will permanently delete your account")
-                    })
-                    
                 }
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Image(systemName: "line.3.horizontal")
-                        .imageScale(.large)
+            .toolbar{
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        showingSheet.toggle()
+                    } label: {
+                        Image(systemName: "gearshape.fill")
+                            .foregroundColor(Color(.systemGray))
+                            
+                    }
+                    .sheet(isPresented: $showingSheet){
+                        ProfileEditSheetView()
+                    }
                 }
             }
         }
