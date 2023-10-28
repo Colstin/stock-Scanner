@@ -13,15 +13,15 @@
 
 ### Section 1: Landing Page
 <div align="center">
-<img width="200"  title="Landing" src="https://github.com/Colstin/stock-Scanner/assets/96356901/f6ba72e0-21e8-418e-80c7-69ac3983253e">
-<img width="200"  title="Login" src="https://github.com/Colstin/stock-Scanner/assets/96356901/f772a0b0-0c76-40ad-a878-304d53599ade">
-<img width="200"  title="Sign Up" src="https://github.com/Colstin/stock-Scanner/assets/96356901/6253a9cb-bf09-444a-91c9-cbfdb98855ae">
+<img width="300"  title="Landing" src="https://github.com/Colstin/stock-Scanner/assets/96356901/f6ba72e0-21e8-418e-80c7-69ac3983253e">
+<img width="300"  title="Login" src="https://github.com/Colstin/stock-Scanner/assets/96356901/f772a0b0-0c76-40ad-a878-304d53599ade">
+<img width="300"  title="Sign Up" src="https://github.com/Colstin/stock-Scanner/assets/96356901/6253a9cb-bf09-444a-91c9-cbfdb98855ae">
 </div>
 
 
 ### Section 2: Stock Scanner
 <div align="center">
-<img width="200"  title="Welcome" src="https://github.com/Colstin/stock-Scanner/assets/96356901/c5e94d8c-f5d6-4551-8db5-7eced932917c">
+<img width="300"  title="Welcome" src="https://github.com/Colstin/stock-Scanner/assets/96356901/c5e94d8c-f5d6-4551-8db5-7eced932917c">
 </div>
 
 
@@ -33,8 +33,8 @@
 
 ### Section 4: Profile 
 <div align="center">
-<img width="200"  title="Profile Screen" src="https://github.com/Colstin/stock-Scanner/assets/96356901/425fa39e-e3c4-4b86-b6e8-e142753e8a08">
-<img width="200"  title="Settings" src="https://github.com/Colstin/stock-Scanner/assets/96356901/c88d10ea-4b5a-4621-8cd5-b855f5461566">
+<img width="300"  title="Profile Screen" src="https://github.com/Colstin/stock-Scanner/assets/96356901/425fa39e-e3c4-4b86-b6e8-e142753e8a08">
+<img width="300"  title="Settings" src="https://github.com/Colstin/stock-Scanner/assets/96356901/c88d10ea-4b5a-4621-8cd5-b855f5461566">
 </div>
 
 
