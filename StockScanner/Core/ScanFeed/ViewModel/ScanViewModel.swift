@@ -16,7 +16,7 @@ class ScanViewModel: ObservableObject {
     
     
     init (){
-      // fetchStock()
+       fetchStock()
     }
     
    
